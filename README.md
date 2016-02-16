@@ -5,7 +5,7 @@
 ## Installation
 
     ```
-    pip install git+https://github.com/alaindomissy/pybasespace.git#egg=pybasespace
+    pip install basespaceapp
     ```
 pybasespace runs on Python 2.7, 3.3 and 3.4
  

@@ -6,14 +6,8 @@ import os
 from ..basespaceapp.sampleapp import *
 
 
-def test_json_depcopy():
 
-    assert(json_deepcopy(metadatatemplate) == json_deepcopy(metadatatemplate))
-
-    assert(json_deepcopy(metadatatemplate) is not json_deepcopy(metadatatemplate))
-
-
-def test_parse_appsessionparams():
+def test_metadatajson():
 
     # testdir = os.path.dirname(os.path.abspath(__file__))
     #

@@ -1,7 +1,7 @@
 from setuptools import setup  #, find_packages
 
 setup(name='basespaceapp',
-      version='0.0.0',
+      version='0.0.1',
       description='template for basespace native app.',
       url='https://github.com/alaindomissy/basespaceapp',
       author='Alain Domissy',

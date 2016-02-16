@@ -189,7 +189,7 @@ if __name__ == '__main__':
     print(os.listdir('/data/'))
     print(os.listdir('/data/input/'))
 
-    appsessionhref1, appsessionparams1 = read_appsession('/data/input/AppSession.json')
-    appsessionhref, appsessionparams = read_appsession(APPSESS)
-    param_values = parse_appsessionparams(appsessionparams)
-    process_appsession(param_values)
+    # appsessionhref1, appsessionparams1 = read_appsession('/data/input/AppSession.json')
+    # appsessionhref, appsessionparams = read_appsession(APPSESS)
+    # param_values = parse_appsessionparams(appsessionparams)
+    # process_appsession(param_values)

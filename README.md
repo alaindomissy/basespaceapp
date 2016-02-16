@@ -1,5 +1,5 @@
 # basespaceapp
- *a template for builind basespace native apps*
+ *a template for building basespace native apps*
 
 
 ## Installation

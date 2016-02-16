@@ -1,0 +1,8 @@
+.coveragec
+.coverall.yml
+.gitignore
+.travis.yml
+conda
+dist
+basespaceapp.egg-info
+tests

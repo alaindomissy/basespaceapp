@@ -117,6 +117,7 @@ def main(appsession_filename):
 ##############################
 
 if __name__ == '__main__':
-    main('/data/input/AppSession.json')
+    pass
+    # main('/data/input/AppSession.json')
 
 

@@ -34,7 +34,7 @@ pybasespace runs on Python 2.7, 3.3 and 3.4
 builld image
     
     ```
-    docker build -t basespaceapp .
+    docker build -t basespaceapp ./
     ```
  
 run a comtainer

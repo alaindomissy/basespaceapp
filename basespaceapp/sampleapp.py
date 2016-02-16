@@ -3,13 +3,10 @@
 # TODO make it work with py3
 
 
-from __future__ import absolute_import, division, print_function
-# from __future__ import unicode_literals
-
+from __future__ import absolute_import, division, print_function        # , unicode_literals
 import os
-import fnmatch
-import sys
 import json
+import argparse
 
 
 def metadatajson():
@@ -38,9 +35,9 @@ parameter_list = []
 
 
 
-def main(appsession_filename):
+def main(datadir='/data/'):
 
-    jsonfile = open(appsession_filename)
+    jsonfile = open(datadir + 'input/AppSession.json')
 
     jsonObject = json.load(jsonfile)
     # determine the number of properties
@@ -75,10 +72,10 @@ def main(appsession_filename):
                 sampleID.append(jsonObject['Properties']['Items'][index]['Items'][sample]['Id'])
                 sampleHref.append(jsonObject['Properties']['Items'][index]['Items'][sample]['Href'])
                 sampleName.append(jsonObject['Properties']['Items'][index]['Items'][sample]['Name'])
-                sampleDir = '/data/input/samples/%s/Data/Intensities/BaseCalls' % (sampleID[sample])
 
+                sampleDir = datadir + 'input/samples/%s/Data/Intensities/BaseCalls' % (sampleID[sample])
                 if not os.path.exists(sampleDir):
-                    sampleDir = '/data/input/samples/%s' % (sampleID[sample])
+                    sampleDir = datadir + 'input/samples/%s' % (sampleID[sample])
 
                 # TODO issue with "number of R1 and R2 files do not match" check,
                 # for root, dirs, files in os.walk(sampleDir[sample]):
@@ -88,8 +85,9 @@ def main(appsession_filename):
                 #         print("number of R1 and R2 files do not match")
                 #         sys.exit()
 
-                sampleOutDir = '/data/output/appresults/%s/%s' % (projectID, sampleName[sample])
+                sampleOutDir = datadir + 'output/appresults/%s/%s' % (projectID, sampleName[sample])
                 os.system('mkdir -p "%s"' % (sampleOutDir))
+
                 # create output file and print parameters to output file (this is where you would run the command)
                 file = '%s/parameters.csv' % (sampleOutDir)
                 outFile = open(file, 'w')
@@ -112,12 +110,14 @@ def main(appsession_filename):
                 outMetadataFile = open(metadataFile, 'w')
                 json.dump(metaJsonObject, outMetadataFile)
 
+parser = argparse.ArgumentParser(description='sampleapp, a sample app to test basespace native app platform')
+
+parser.add_argument('directory', help='directory path containing input/AppSession.json and samples/')
+
 
 # this file executed as script
 ##############################
 
 if __name__ == '__main__':
-    pass
-    # main('/data/input/AppSession.json')
-
-
+    args = parser.parse_args()
+    main(args.datadir)

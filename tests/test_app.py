@@ -16,8 +16,9 @@ def test_json_depcopy():
 def test_parse_appsessionparams():
 
     testdir = os.path.dirname(os.path.abspath(__file__))
+    datadir = testdir + '/data/'
 
-    appsession_location = testdir + '/AppSession.json'
+    appsession_location = datadir + 'input/AppSession.json'
 
     appsessionhref1, appsessionparams1 = read_appsession(appsession_location)
 

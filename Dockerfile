@@ -1,8 +1,7 @@
 FROM alaindomissy/docker-miniconda2
 MAINTAINER Alain Domissy alaindomissy@gmail.com
 
-RUN pip install \
-    six
+RUN conda install -y six
 
 COPY . /basespaceapp
 WORKDIR /basespaceapp

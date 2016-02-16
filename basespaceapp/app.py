@@ -14,7 +14,7 @@ from __future__ import absolute_import, division, print_function
 from six import iteritems
 import json
 from datetime import datetime
-
+import argparse
 from .payload import payload
 from .config import APPSESS
 
@@ -174,22 +174,33 @@ def process_appsession(param_values):
         write_results(results, output_dir)
 
 
+def main(datadir):
+    print("APPSESS", APPSESS )
+    print("type(APPSESS)", type(APPSESS))
+    assert(APPSESS == datadir + 'input/AppSession.json')
+    import os
+    print(">>>os.listdir(datadir + 'input/AppSession.json')")
+    print(">>>os.listdir(datadir + 'input/AppSession.json')")
+    print(os.listdir(datadir))
+    print(os.listdir(datadir + 'input/'))
+
+    appsessionhref1, appsessionparams1 = read_appsession(datadir + 'input/AppSession.json')
+    appsessionhref, appsessionparams = read_appsession(APPSESS)
+    param_values = parse_appsessionparams(appsessionparams)
+
+    process_appsession(param_values)
+
+
+parser = argparse.ArgumentParser(description='app, a sample app to test basespace native app platform')
+
+parser.add_argument('datadir',
+                    help='directory path containing input/AppSession.json and samples/'
+                    )
+
 # this file executed as script
 ##############################
 
 if __name__ == '__main__':
+    args = parser.parse_args()
+    main(args.datadir)
 
-    print("APPSESS", APPSESS )
-    print("type(APPSESS)", type(APPSESS))
-    assert(APPSESS == '/data/input/AppSession.json')
-    import os
-    print(">>>os.listdir('/data/input/AppSession.json')")
-    print(">>>os.listdir('/data/input/AppSession.json')")
-    print(os.listdir('/'))
-    print(os.listdir('/data/'))
-    print(os.listdir('/data/input/'))
-
-    # appsessionhref1, appsessionparams1 = read_appsession('/data/input/AppSession.json')
-    # appsessionhref, appsessionparams = read_appsession(APPSESS)
-    # param_values = parse_appsessionparams(appsessionparams)
-    # process_appsession(param_values)

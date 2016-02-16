@@ -112,7 +112,7 @@ def main(datadir='/data/'):
 
 parser = argparse.ArgumentParser(description='sampleapp, a sample app to test basespace native app platform')
 
-parser.add_argument('directory',
+parser.add_argument('datadir',
                     help='directory path containing input/AppSession.json and samples/'
                     )
 

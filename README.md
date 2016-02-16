@@ -30,4 +30,14 @@ pybasespace runs on Python 2.7, 3.3 and 3.4
 
 ## Docker image
  
+    run a comtainer
+    
+    ```
+    docker build -t basespaceapp .
+    ```
  
+    run a comtainer
+    
+    ```
+    docker run -it alaindomissy/basespaceapp
+    ```

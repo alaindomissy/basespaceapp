@@ -9,14 +9,8 @@ from ..basespaceapp.sampleapp import *
 
 def test_metadatajson():
 
-    # testdir = os.path.dirname(os.path.abspath(__file__))
-    #
-    # appsession_location = testdir + '/AppSession.json'
-    #
-    # appsessionhref1, appsessionparams1 = read_appsession(appsession_location)
-    #
-    # assert(appsessionhref1 == u'v1pre3/appsessions/31951397')
-    #
-    # assert(expected)
+    testdir = os.path.dirname(os.path.abspath(__file__))
 
-    pass
+    appsession_location = testdir + '/AppSession.json'
+
+    main('/data/input/AppSession.json')

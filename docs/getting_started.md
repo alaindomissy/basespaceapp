@@ -7,7 +7,7 @@ This section contains a quick guide for installing, and using basespaceapp. For 
 
 ## Installation
 
-Metapipe is available on PyPi so installing is easy.
+Basespaceapp is available on PyPi so installing is easy.
 
 ```bash 
 $ pip install basespaceapp
@@ -19,7 +19,7 @@ To make it easy, basespaceapp runs on Python 2.7, 3.4, and 3.5!
 
 ## Using basespaceapp
 
-By default, basespaceapp is both a command line tool and a Python module that can be used to build and run pipelines in code. This means that whether you're a user, or a developer Metapipe can be adapted to fit your needs.
+By default, basespaceapp is both a command line tool and a Python module that can be used to build and run pipelines in code. This means that whether you're a user, or a developer Basespaceapp can be adapted to fit your needs.
 
 To see basespaceapp's help menu, type the following, just as you'd expect.
 
@@ -74,7 +74,7 @@ This will generate an output script named `pipeline.sh` which will run the pipel
 $ sh pipeline.sh
 ```
 
-That's it! Metapipe will run in the foreground watching your jobs complete until everything finishes.
+That's it! Basespaceapp will run in the foreground watching your jobs complete until everything finishes.
 
 
 ### Run the sample pipeline on PBS
@@ -91,4 +91,4 @@ Then simply submit basespaceapp as a job:
 $ qsub pipeline.sh
 ```
 
-Metapipe will run as a job on the PBS/Torque queue and submit other jobs to the same queue! It will keep tabs on the running jobs and submit them when they're ready, then exit when all jobs finish.
+Basespaceapp will run as a job on the PBS/Torque queue and submit other jobs to the same queue! It will keep tabs on the running jobs and submit them when they're ready, then exit when all jobs finish.

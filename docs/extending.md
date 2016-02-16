@@ -196,6 +196,6 @@ pipeline = Runtime(command_templates, JOB_TYPES, 'my_custom_job_type')
 
 **IMPORTANT:** Adding custom queues is coming soon!
 
-For more information on how to script metapipe once you have custom jobs, see [Scripting Metapipe](scripting.html)
+For more information on how to script metapipe once you have custom jobs, see [Scripting Basespaceapp](scripting.html)
  
  

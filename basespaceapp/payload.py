@@ -27,14 +27,15 @@ def payload(params_value, output_dir):
     param1 = str(params_value['param1'])
     param2 = str(params_value['param2'])
     param3 = str(params_value['param3'])
+    param4 = str(params_value['param4'])
 
     # do stuff with data, saving files into SCRATCH
     ################################################
-    dostuff(param1, param2, param3, SCRATCH)
+    dostuff(param1, param2, param3, param4, SCRATCH)
 
     # coypy sctach to output_dir, so it is saves as results by basespace
     #####################################################################
     # copytree(source, destination, ignore=_logpath)
     copytree(SCRATCH, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
 
-    return
+    return 'param1: ' + 'a' + '\n param2: ' + 'b' + '\n param3: ' + 'c' + '\n param4: ' + 'd'

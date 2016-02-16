@@ -1,9 +1,9 @@
+# sys.path.insert(0, os.path.abspath(__file__+"/../.."))
+
 from __future__ import absolute_import, division, print_function
 import sys
 import os
-sys.path.insert(0, os.path.abspath(__file__+"/../.."))
-
-from pybasespace.app import *
+from ..basespaceapp.app import *
 
 
 def test_json_depcopy():
@@ -17,7 +17,7 @@ def test_parse_appsessionparams():
 
     testdir = os.path.dirname(os.path.abspath(__file__))
 
-    appsession_location = testdir + '/data/AppSession.json'
+    appsession_location = testdir + '/AppSession.json'
 
     appsessionhref1, appsessionparams1 = read_appsession(appsession_location)
 

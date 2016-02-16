@@ -13,4 +13,4 @@ def test_metadatajson():
 
     appsession_location = testdir + '/AppSession.json'
 
-    main('/data/input/AppSession.json')
+    main(appsession_location)

@@ -9,13 +9,14 @@ Welcome to basespaceapp's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
-   
-   what_is_basespaceapp.md
-   getting_started.md
-   syntax.md
-   scripting.md
-   extending.md
+   :maxdepth: 3
+   :numbered:
+
+   source/what_is_basespaceapp.md
+   source/getting_started.md
+   source/syntax.md
+   source/scripting.md
+   source/extending.md
 
 
 Indices and tables

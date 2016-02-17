@@ -10,8 +10,7 @@
  [![Python 3.4 Status](https://img.shields.io/badge/Python-3.4-brightgreen.svg)](https://img.shields.io/badge/Python-3.4-blue.svg)
  [![Python 3.5 Status](https://img.shields.io/badge/Python-3.5-brightgreen.svg)](https://img.shields.io/badge/Python-3.5-blue.svg)
  
- [![(https://badge.imagelayers.io/alaindomissy/docker-basespace-advanced-native-app:latest.svg)](https://imagelayers.io/?images=alaindomissy/docker-basespace-advanced-native-app:latest 'Get your own badge on imagelayers.io')
-
+ [![](https://badge.imagelayers.io/alaindomissy/docker-basespace-advanced-native-app:latest.svg)](https://imagelayers.io/?images=alaindomissy/docker-basespace-advanced-native-app:latest 'Get your own badge on imagelayers.io')
  [![Documentation Status](https://readthedocs.org/projects/basespaceapp/badge/?version=latest)](http://readthedocs.org/docs/basespaceapp/en/latest/?badge=latest)
 
 ## Installation

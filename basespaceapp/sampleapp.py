@@ -89,6 +89,7 @@ def main(datadir='/data/'):
                 os.system('mkdir -p "%s"' % (sampleOutDir))
 
                 # create output file and print parameters to output file (this is where you would run the command)
+                ########################################################
                 file = '%s/parameters.csv' % (sampleOutDir)
                 outFile = open(file, 'w')
                 count = 0
@@ -96,7 +97,9 @@ def main(datadir='/data/'):
                     count += 1
                     outFile.write('%s,%s\n' % (count, parameter))
                 outFile.close()
+
                 # create metadata file for each appresult
+                #########################################
                 metadataObject = metadatajson()
                 metaJsonObject = json.loads(metadataObject)
                 # modify metadataObject
@@ -105,7 +108,6 @@ def main(datadir='/data/'):
                 metaJsonObject['HrefAppSession'] = jsonObject['Href']
                 for href in sampleHref:
                     metaJsonObject['Properties'][0]['Items'].append(href)
-
                 metadataFile = '%s/_metadata.json' % (sampleOutDir)
                 outMetadataFile = open(metadataFile, 'w')
                 json.dump(metaJsonObject, outMetadataFile)

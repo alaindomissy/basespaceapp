@@ -62,16 +62,16 @@ def main(datadir='/data/'):
     sampleDir = []
     for index in range(numberOfPropertyItems):
         # add parameters to parameters list
-        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.textbox':
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.textboxtext':
             parameter = jsonObject['Properties']['Items'][index]['Content']
             parameter_list.append(parameter)
-        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.radio':
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.random-radio':
             parameter = jsonObject['Properties']['Items'][index]['Content']
             parameter_list.append(parameter)
-        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.checkbox':
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.checkbox-1':
             parameter = jsonObject['Properties']['Items'][index]['Items'][0]
             parameter_list.append(parameter)
-        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.numeric':
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.circles':
             parameter = jsonObject['Properties']['Items'][index]['Content']
             parameter_list.append(parameter)
         # set project ID

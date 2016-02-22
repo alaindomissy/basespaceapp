@@ -1,4 +1,13 @@
-Version 0.0.0
--------------
+0.0.0 - 2016-02-??
+------------------
 
     - Initial version
+
+0.0.1 - 2016-02-22
+------------------
+
+    - py3 support
+    - output_dir parameter
+    - sampleapp.py : almost same as basespace doc exmaple
+    - app.py now works
+    - ./tests/data/ with test data

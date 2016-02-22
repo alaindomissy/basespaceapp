@@ -6,4 +6,4 @@ RUN conda install -y six
 COPY . /basespaceapp
 WORKDIR /basespaceapp
 RUN python setup.py install
-CMD python -m sampleapp
+CMD python -m  basespaceapp.sampleapp ./tests/data/

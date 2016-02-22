@@ -37,6 +37,6 @@ builld image
 run a comtainer
 
     ```
-    docker run -it alaindomissy/basespaceapp basespaceapp.sampleapp ./tests/data/
+    docker run -it alaindomissy/basespaceapp
 
     ```

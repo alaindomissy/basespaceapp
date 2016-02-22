@@ -1,3 +1,7 @@
+#!/bin/env python
+
+# TODO make it work with py3
+
 ########################################################################################################################
 #
 # APP
@@ -8,13 +12,12 @@
 #
 ########################################################################################################################
 
-from __future__ import absolute_import, division, print_function
-# from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function        # , unicode_literals
+import json
+import argparse
 
 from six import iteritems
-import json
 from datetime import datetime
-import argparse
 from .payload import payload
 from .config import APPSESS
 
@@ -138,9 +141,6 @@ def write_params(param_values, output_dir):
     print()
 
 
-###################
-# MAIN API FUNCTION
-###################
 
 
 def process_appsession(param_values):
@@ -174,7 +174,12 @@ def process_appsession(param_values):
         write_results(results, output_dir)
 
 
-def main(datadir):
+###################
+# MAIN API FUNCTION
+###################
+
+
+def main(datadir='/data/'):
     print("APPSESS", APPSESS )
     print("type(APPSESS)", type(APPSESS))
     assert(APPSESS == datadir + 'input/AppSession.json')
@@ -197,10 +202,10 @@ parser.add_argument('datadir',
                     help='directory path containing input/AppSession.json and samples/'
                     )
 
+
 # this file executed as script
 ##############################
 
 if __name__ == '__main__':
     args = parser.parse_args()
     main(args.datadir)
-

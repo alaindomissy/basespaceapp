@@ -2,11 +2,21 @@
 
 # TODO make it work with py3
 
+########################################################################################################################
+#
+# APP
+#
+# API functions:
+#
+# intended to be run as a script (if __name__ == '__main__': code)
+#
+########################################################################################################################
 
 from __future__ import absolute_import, division, print_function        # , unicode_literals
-import os
 import json
 import argparse
+
+import os
 
 
 def metadatajson():
@@ -33,6 +43,10 @@ def metadatajson():
 parameter_list = []
 # load json file
 
+
+###################
+# MAIN API FUNCTION
+###################
 
 
 def main(datadir='/data/'):
@@ -111,6 +125,7 @@ def main(datadir='/data/'):
                 metadataFile = '%s/_metadata.json' % (sampleOutDir)
                 outMetadataFile = open(metadataFile, 'w')
                 json.dump(metaJsonObject, outMetadataFile)
+
 
 parser = argparse.ArgumentParser(description='sampleapp, a sample app to test basespace native app platform')
 

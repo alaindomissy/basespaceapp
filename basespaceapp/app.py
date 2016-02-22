@@ -1,13 +1,12 @@
 #!/bin/env python
 
-# TODO make it work with py3
-
 ########################################################################################################################
 #
 # APP
 #
 # API functions:
 #
+# this is a refactored and extended version of the sampleapp.py (the basespace documentation example)
 # intended to be run as a script (if __name__ == '__main__': code)
 #
 ########################################################################################################################
@@ -138,9 +137,7 @@ def write_params(param_values, output_dir):
     print()
 
 
-
-
-def process_appsession(param_values):
+def process_appsession(appsessionhref, param_values, datadir):
 
     project_id = param_values.get('input.project_id')
     samples = param_values.get('input.samples')
@@ -152,19 +149,20 @@ def process_appsession(param_values):
     #     process_sample(sample, sample_output_dir, param_values)
     #     write_sample_metadata(sample['name'], 'Sample Description', appsessionhref, sampleshrefs, sample_output_dir)
 
-    output_dir = '/data/output/appresults/' + project_id + '/sessionsummary_' + datetime.now().isoformat('_') + '/'
-
-
+    output_dir = datadir + 'output/appresults/' + project_id + '/sessionsummary_' + datetime.now().isoformat('_') + '/'
+    scratch_dir = datadir + "scratch/"
+    # ATN output_dir gets created by the call to payload     # TODO no longer true?
+    os.system('mkdir -p "%s"' % output_dir)
+    os.system('mkdir -p "%s"' % scratch_dir)
 
     ###########################################
     print("process sample starts: ",  datetime.now().isoformat('_'))
-    results = payload(param_values, output_dir)
+    print("param_values : ", param_values)
+    results = payload(param_values, output_dir, scratch_dir)
     print("end process sample ends: ",  datetime.now().isoformat('_'))
     ############################################
-    # ATN output_dir gets created by the call to payload     # TODO no longer true?
-    # os.system('mkdir -p "%s"' % output_dir)
 
-    # TODO check why the output_dir is created inside the payload call,then move print metadatqa to before the payload
+    # TODO check why the output_dir is created inside the payload call, then move print metadatqa to before the payload
     write_metadata('\nsessionsummary','Session Description', appsessionhref, sampleshrefs, output_dir)
     write_params(param_values, output_dir)
     if results:
@@ -180,8 +178,8 @@ def main(datadir='/data/'):
     print("APPSESS", APPSESS )
     print("datadir + 'input/AppSession.json'" , datadir + 'input/AppSession.json')
     print()
-    print("type(APPSESS)", type(APPSESS))
-    assert(APPSESS == datadir + 'input/AppSession.json')
+    # print("type(APPSESS)", type(APPSESS))
+    # assert(APPSESS == datadir + 'input/AppSession.json')
 
     print(">>>os.listdir(datadir + 'input/AppSession.json')")
     print()
@@ -189,12 +187,13 @@ def main(datadir='/data/'):
     print()
     print(os.listdir(datadir))
 
-    appsessionhref1, appsessionparams1 = read_appsession(datadir + 'input/AppSession.json')
-    param_values = parse_appsessionparams(appsessionparams1)
-    appsessionhref, appsessionparams = read_appsession(APPSESS)
+    appsessionhref, appsessionparams = read_appsession(datadir + 'input/AppSession.json')
     param_values = parse_appsessionparams(appsessionparams)
 
-    process_appsession(param_values)
+    # appsessionhref, appsessionparams = read_appsession(APPSESS)
+    # param_values = parse_appsessionparams(appsessionparams)
+
+    process_appsession(appsessionhref, param_values, datadir)
 
 
 parser = argparse.ArgumentParser(description='app, a sample app to test basespace native app platform')

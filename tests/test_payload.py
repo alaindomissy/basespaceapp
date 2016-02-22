@@ -1,6 +1,4 @@
-# sys.path.insert(0,os.path.abspath(__file__+"/../.."))
-
-from __future__ import absolute_import, division, print_function
+from __future__ import absolute_import, division, print_function       # , unicode_literals
 import sys,os
 from ..basespaceapp.payload import payload
 

@@ -6,13 +6,12 @@
 #
 ########################################################################################################################
 
-from __future__ import absolute_import, division, print_function
-# from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function   # , unicode_literals
 
 from shutil import copytree
 from datetime import datetime
 
-from .config import SCRATCH
+# from .config import SCRATCH
 from .dostuff import dostuff
 
 

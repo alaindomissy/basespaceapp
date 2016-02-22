@@ -7,4 +7,4 @@ COPY . /basespaceapp
 WORKDIR /basespaceapp
 RUN python setup.py install
 
-CMD python -m  basespaceapp.sampleapp ./tests/data/
+CMD python -m basespaceapp.app ./tests/data/

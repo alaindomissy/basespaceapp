@@ -66,14 +66,14 @@
       {
         "Type": "string",
         "Href": "v1pre3/appsessions/31951397/properties/Input.param3",
-        "Name": "Input.param1",
+        "Name": "Input.param3",
         "Description": "param3",
         "Content": "cccc"
       },
       {
         "Type": "string",
         "Href": "v1pre3/appsessions/31951397/properties/Input.param4",
-        "Name": "Input.param1",
+        "Name": "Input.param4",
         "Description": "param4",
         "Content": "cccc"
       },

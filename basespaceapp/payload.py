@@ -20,22 +20,23 @@ from .dostuff import dostuff
 # MAIN API FUNCTION
 ###################
 
-def payload(params_value, output_dir):
+def payload(params_value, output_dir, scratch_dir):
 
     # parse params_value
     ####################
-    param1 = str(params_value['param1'])
-    param2 = str(params_value['param2'])
-    param3 = str(params_value['param3'])
-    param4 = str(params_value['param4'])
+    param1 = str(params_value['input.param1'])
+    param2 = str(params_value['input.param2'])
+    param3 = str(params_value['input.param3'])
+    param4 = str(params_value['input.param4'])
 
     # do stuff with data, saving files into SCRATCH
     ################################################
-    dostuff(param1, param2, param3, param4, SCRATCH)
+
+    dostuff(param1, param2, param3, param4, scratch_dir + 'result.txt')
 
     # coypy sctach to output_dir, so it is saves as results by basespace
     #####################################################################
     # copytree(source, destination, ignore=_logpath)
-    copytree(SCRATCH, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
+    copytree(scratch_dir, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
 
-    return 'param1: ' + 'a' + '\n param2: ' + 'b' + '\n param3: ' + 'c' + '\n param4: ' + 'd'
+    return 'param1: ' + 'a' + '\nparam2: ' + 'b' + '\nparam3: ' + 'c' + '\nparam4: ' + 'd'

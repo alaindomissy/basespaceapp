@@ -18,7 +18,7 @@ import os
 from six import iteritems
 from datetime import datetime
 from .payload import payload
-from .config import APPSESS
+from .config import APPSESS, ARGUMENTS_WITH_CONTENT, ARGUMENTS_WITH_ITEMS
 
 
 def read_appsession(appsession_jsonfilename):
@@ -29,14 +29,10 @@ def read_appsession(appsession_jsonfilename):
     return appsessionhref, appsessionparams
 
 
-def parse_appsessionparams(appsessionparams):
-    arguments_with_content = ['input.param1',
-                              'input.param2'
-                              ]
-    arguments_with_items = ['input.param3',
-                            'input.param4'
-                            ]
+def parse_appsessionparams(appsessionparams, arguments_with_content=ARGUMENTS_WITH_CONTENT, arguments_with_items=ARGUMENTS_WITH_ITEMS):
+
     param_values = {}
+
     param_values.update(
         {param.get('Name').lower(): param.get('Content')
          for param in appsessionparams
@@ -49,6 +45,7 @@ def parse_appsessionparams(appsessionparams):
          if param.get('Name').lower() in arguments_with_items
         }
     )
+
     param_values.update(
         {'input.project_id': param.get('Content').get('Id')
          for param in appsessionparams

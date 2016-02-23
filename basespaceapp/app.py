@@ -155,7 +155,7 @@ def process_appsession(appsessionhref, param_values, datadir):
     ###########################################
     print("process sample starts: ",  datetime.now().isoformat('_'))
     print("param_values : ", param_values)
-    results = payload(param_values, output_dir, scratch_dir)
+    # results = payload(param_values, output_dir, scratch_dir)
     print("end process sample ends: ",  datetime.now().isoformat('_'))
     ############################################
 
@@ -190,7 +190,7 @@ def main(datadir='/data/'):
     # appsessionhref, appsessionparams = read_appsession(APPSESS)
     # param_values = parse_appsessionparams(appsessionparams)
 
-    ### process_appsession(appsessionhref, param_values, datadir)
+    process_appsession(appsessionhref, param_values, datadir)
 
 
 parser = argparse.ArgumentParser(description='app, a sample app to test basespace native app platform')

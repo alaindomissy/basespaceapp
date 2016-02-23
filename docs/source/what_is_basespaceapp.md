@@ -15,5 +15,5 @@ In addition to helping you generate and maintain complex Basespace native apps, 
 
 In the bad old days (before basespaceapp), if you wanted to make a Basespace native apps, you needed to know how to code json input form specifications and javascript callback functions. **Not anymore!** Basespaceapp makes it easy to build and run your analysis pipelines! **No more code, just commands!** This makes your pipelines easy to understand and change!
 
-A sample basespace file can be found in [Basespaceapp Syntax](syntax.html)
+A sample basespace file can be found in [Basespaceapp Syntax](what_is_basespace.html)
 

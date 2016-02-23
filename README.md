@@ -21,6 +21,8 @@ pybasespace runs on Python 2.7, 3.3, 3.4 and 3.5
 
 ## Documentation
 
+https://basespaceapp.readthedocs.org/en/latest/
+
 
 ## Online access
 

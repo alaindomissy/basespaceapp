@@ -1,6 +1,8 @@
 # Extending Basespaceapp
 
-Metapipe provides 2 extension points for developers to extend it's functionality: custom Queues and custom Job Types. In most cases, custom queues are an advanced feature that most users and developers will not need to worry about, but if you must, it is there.
+Basespaceaopp provides 2 extension points for developers to extend it's functionality: custom FormFields types and custom Callbacks Types.
+
+In most cases, custom queues are an advanced feature that most users and developers will not need to worry about, but if you must, it is there.
 
 To add support for a queue system not included with metapipe, all you need to do is add a job type.
 
@@ -25,7 +27,7 @@ class MyCustomJob(Job):
 
 There are 6 methods you need to fill in to have a complete job class. Your full job subclass should have the following form:
 
-```python 
+```python
 class MyCustomJob(Job):
 
     def __repr__(self):
@@ -35,9 +37,9 @@ class MyCustomJob(Job):
 
     @property
     def cmd(self):
-        """ Returns the command needed to submit the calculations. 
-        Normally, this would be just running the command, however if 
-        using a queue system, then this should return the command to 
+        """ Returns the command needed to submit the calculations.
+        Normally, this would be just running the command, however if
+        using a queue system, then this should return the command to
         submit the command to the queue.
         """
         pass
@@ -48,17 +50,17 @@ class MyCustomJob(Job):
         :see: call
         """
         pass
-        
+
     def is_running(self):
         """ Returns whether the job is running or not. """
         pass
 
     def is_queued(self):
-        """ Returns whether the job is queued or not. 
+        """ Returns whether the job is queued or not.
         This function is only used if jobs are submitted to an external queue.
         """
         pass
-        
+
     def is_complete(self):
         """ Returns whether the job is complete or not. """
         pass
@@ -68,7 +70,7 @@ class MyCustomJob(Job):
         pass
 ```
 
-The duty of the job types is to submit the jobs when asked by the queue, and to inform the queue about the status of jobs. The queue needs to know when a job is running, queued, complete, or when an error has occurred. 
+The duty of the job types is to submit the jobs when asked by the queue, and to inform the queue about the status of jobs. The queue needs to know when a job is running, queued, complete, or when an error has occurred.
 
 Each of the `is_*` callbacks should return a boolean value, and the cmd property should return the bash command (as an array of strings) that can be called to run the job. The job class has an attribute `filename` that contains the value of the bash script containing the job command (i.e. `['bash', self.filename]`).
 
@@ -103,8 +105,8 @@ class PBSJob(Job):
 As you can see, it keeps track of the number of times the job was submitted, and then calls the `call` function, provided in the root job module, to execute the job. Since PBS assigns job ids to each job at submission-time, it also captures that information and saves it for later use.
 
 [job]: https://github.com/TorkamaniLab/metapipe/blob/master/metapipe/models/job.py#L20
- 
- 
+
+
 ## Custom Queues
 
 In the event that your analysis requires more control over the submission process for jobs, the metapipe module also allows for the customization of queue logic by subclassing `metapipe.models.Queue`. This section will cover how to subclass the root queue, but it is left to the reader to determine why you might want to do this. From personal experience, customizing the queue should be a very rare requirement.
@@ -118,12 +120,12 @@ To customize the response of the queue to various types of events subclass it an
 
 ```python
 class MyCustomQueue(object):
-                    
+
     def __repr__(self):
         return '<MyCustomQueue: jobs=%s>' % len(self.queue)
-                        
+
     # Callbacks...
-        
+
     def on_start(self):
         """ Called when the queue is starting up. """
         pass
@@ -131,44 +133,44 @@ class MyCustomQueue(object):
     def on_end(self):
         """ Called when the queue is shutting down. """
         pass
-    
+
     def on_locked(self):
-        """ Called when the queue is locked and no jobs can proceed. 
+        """ Called when the queue is locked and no jobs can proceed.
         If this callback returns True, then the queue will be restarted,
         else it will be terminated.
         """
         return True
-        
+
     def on_tick(self):
         """ Called when a tick of the queue is complete. """
         pass
-    
+
     def on_ready(self, job):
-        """ Called when a job is ready to be submitted. 
+        """ Called when a job is ready to be submitted.
         :param job: The given job that is ready.
-        """ 
+        """
         pass
-        
+
     def on_submit(self, job):
-        """ Called when a job has been submitted. 
+        """ Called when a job has been submitted.
         :param job: The given job that has been submitted.
-        """ 
+        """
         pass
-        
+
     def on_complete(self, job):
-        """ Called when a job has completed. 
+        """ Called when a job has completed.
         :param job: The given job that has completed.
-        """ 
+        """
         pass
-        
+
     def on_error(self, job):
-        """ Called when a job has errored. 
+        """ Called when a job has errored.
         :param job: The given job that has errored.
-        """ 
+        """
         pass
 ```
- 
- 
+
+
 ## Using Your Custom Code
 
 Once you have subclassed and filled in the required code for your custom job type or queue, it is time to use your code. If your code adapts metapipe to work on a common computing platform, or system then please consider contributing to the metapipe project. This helps the rest of the community use a broader range of hardware to solve our problems!
@@ -197,5 +199,5 @@ pipeline = Runtime(command_templates, JOB_TYPES, 'my_custom_job_type')
 **IMPORTANT:** Adding custom queues is coming soon!
 
 For more information on how to script metapipe once you have custom jobs, see [Scripting Basespaceapp](scripting.html)
- 
- 
+
+

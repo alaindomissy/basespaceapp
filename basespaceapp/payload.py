@@ -7,16 +7,13 @@
 ########################################################################################################################
 
 from __future__ import absolute_import, division, print_function   # , unicode_literals
+from six import iteritems
 from shutil import copytree
 from datetime import datetime
-# from .config import SCRATCH
-# from .dostuff import dostuff
-# from .config import ARGUMENTS_WITH_CONTENT, ARGUMENTS_WITH_ITEMS
 
 
-def dostuff(params_value, filepath):
-    result = '\n'.join([key + ': ' + value for key, value in params_value])
-    # result = 'param1: ' + param1 + '\nparam2: ' + param2 + '\nparam3: ' + param3 + '\nparam4: ' + param4
+def dostuff(params_values, filepath):
+    result = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
     with open(filepath, 'w') as filehandle:
         filehandle.write(result)
     return result
@@ -26,25 +23,16 @@ def dostuff(params_value, filepath):
 # MAIN API FUNCTION
 ###################
 
-def payload(params_value, output_dir, scratch_dir):
+def payload(params_values, output_dir, scratch_dir):
 
-    # parse params_value
-    ####################
-    # param1 = str(params_value['input.param1'])
-    # param2 = str(params_value['input.param2'])
-    # param3 = str(params_value['input.param3'])
-    # param4 = str(params_value['input.param4'])
-    # for param in ARGUMENTS_WITH_CONTENT:
-    #     pass
+    # print("params_values :", params_values)
 
     # do stuff with data, saving files into SCRATCH
     ################################################
-    result = dostuff(params_value, scratch_dir + 'result.txt')
+    result = dostuff(params_values, scratch_dir + 'result.txt')
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     #####################################################################
     # copytree(source, destination, ignore=_logpath)
     copytree(scratch_dir, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
-
-    # return 'param1: ' + 'a' + '\nparam2: ' + 'b' + '\nparam3: ' + 'c' + '\nparam4: ' + 'd'
     return result

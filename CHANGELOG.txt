@@ -1,9 +1,9 @@
-0.0.0 - 2016-02-??
+0.0.1 - 2016-02-16
 ------------------
 
     - Initial version
 
-0.0.1 - 2016-02-22
+0.0.2 - 2016-02-22
 ------------------
 
     - py3 support
@@ -11,3 +11,11 @@
     - sampleapp.py : almost same as basespace doc exmaple
     - app.py now works
     - ./tests/data/ with test data
+
+0.0.3 - 2016-02-23
+------------------
+
+    - merged dostuff into payload
+    - payload now takes arguments : params_values, output_dir, scratch_dir
+    - config now includes ARGUMENTS_WITH_CONTENT and ARGUMENTS_WITH_ITEMS
+    - parse_appsessionparams now takes arguments  arguments_with_content arguments_with_items with defaults from config

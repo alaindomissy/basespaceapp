@@ -160,7 +160,7 @@ def process_appsession(appsessionhref, param_values, datadir):
     ############################################
 
     # TODO check why the output_dir is created inside the payload call, then move print metadatqa to before the payload
-    # write_metadata('\nsessionsummary','Session Description', appsessionhref, sampleshrefs, output_dir)
+    write_metadata('\nsessionsummary','Session Description', appsessionhref, sampleshrefs, output_dir)
     # write_params(param_values, output_dir)
     # if results:
     #     write_results(results, output_dir)

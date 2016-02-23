@@ -146,7 +146,7 @@ def process_appsession(appsessionhref, param_values, datadir):
     #     process_sample(sample, sample_output_dir, param_values)
     #     write_sample_metadata(sample['name'], 'Sample Description', appsessionhref, sampleshrefs, sample_output_dir)
 
-    output_dir = datadir + 'output/appresults/' + project_id + '/sessionsummary_' + datetime.now().isoformat('_') + '/'
+    output_dir = datadir + 'output/appresults/' + str(project_id) + '/sessionsummary_' + datetime.now().isoformat('_') + '/'
     scratch_dir = datadir + "scratch/"
     # ATN output_dir gets created by the call to payload     # TODO no longer true?
     os.system('mkdir -p "%s"' % output_dir)
@@ -174,16 +174,16 @@ def process_appsession(appsessionhref, param_values, datadir):
 def main(datadir='/data/'):
     print("APPSESS", APPSESS )
     print("datadir + 'input/AppSession.json'" , datadir + 'input/AppSession.json')
-    print()
+    print("---")
     # print("type(APPSESS)", type(APPSESS))
     # assert(APPSESS == datadir + 'input/AppSession.json')
 
-    print(">>>os.listdir(datadir + 'input/AppSession.json')")
-    print()
+    print(">>>os.listdir(datadir + 'input/')")
     print(os.listdir(datadir + 'input/'))
-    print()
+    print("---")
+    print(">>>os.listdir(datadir)")
     print(os.listdir(datadir))
-
+    print("---")
     appsessionhref, appsessionparams = read_appsession(datadir + 'input/AppSession.json')
     param_values = parse_appsessionparams(appsessionparams)
 

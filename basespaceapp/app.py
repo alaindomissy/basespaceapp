@@ -52,15 +52,15 @@ def parse_appsessionparams(appsessionparams, arguments_with_content=ARGUMENTS_WI
     )
 
     # TODO redundant data in the AppSession.json file - ignore ?
-    param_values.update(
-        {'input.sample_id':
-            [{'id': sample['Id'], 'href':sample['Href'], 'name': sample['Name']}
-             for param in appsessionparams
-             if param.get('Name').lower() == 'input.sample-id'
-             for sample in param.get('Items')
-            ]
-        }
-    )
+    # param_values.update(
+    #     {'input.sample_id':
+    #         [{'id': sample['Id'], 'href':sample['Href'], 'name': sample['Name']}
+    #          for param in appsessionparams
+    #          if param.get('Name').lower() == 'input.sample-id'
+    #          for sample in param.get('Items')
+    #         ]
+    #     }
+    # )
     # TODO redundant data in the AppSession.json file - but only one project ? -  ignore ?
     param_values.update(
         {'input.project_id': param.get('Content').get('Id')
@@ -148,7 +148,7 @@ def write_params(param_values, output_dir):
           '--------------------\n')
     with open(output_dir + 'appsessionparams.csv','w') as out:
         for key, value in iteritems(param_values):
-            line = '%s\t%s\n' % (key,value)
+            line = '%s\t%s' % (key,value)
             if True:   # key != 'input.samples':
                 out.write(line)
                 print(line)
@@ -177,7 +177,7 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
 
     ###########################################
     logline_start_time = "process sample starts: " +  datetime.now().isoformat('_')
-    with open(log_dir + 'log.txt', 'w') as handle:
+    with open(log_dir + 'log.txt', 'a') as handle:
         handle.write(logline_start_time)
     # print(logline_start_time)
 
@@ -191,7 +191,7 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
     copytree(scratch_dir, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
 
     logline_end_time = "end process sample ends: " + datetime.now().isoformat('_')
-    with open(log_dir + 'log.txt', 'w') as handle:
+    with open(log_dir + 'log.txt', 'a') as handle:
         handle.write(logline_end_time)
     # print(logline_end_time)
     ############################################

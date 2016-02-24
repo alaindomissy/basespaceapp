@@ -155,7 +155,7 @@ def write_params(param_values, output_dir):
     print()
 
 
-def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
+def process_appsession(appsessionhref, param_values, data_dir, payloadfunc):
 
     project_id = param_values.get('input.projects')[0]['id']
     samples = param_values.get('input.samples')
@@ -168,32 +168,30 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
     #     write_sample_metadata(sample['name'], 'Sample Description', appsessionhref, sampleshrefs, sample_output_dir)
 
     # output_dir = datadir + 'output/appresults/' + str(project_id) + '/sessionsummary_' + datetime.now().isoformat('_') + '/'
-    output_dir = datadir + 'output/appresults/' + str(project_id) + '/sessionsummary/'
-    scratch_dir = datadir + "scratch/"
-    log_dir = datadir + "log/"
+    output_dir = data_dir + 'output/appresults/' + str(project_id) + '/sessionsummary/'
     # ATN output_dir gets created by the call to payload     # TODO no longer true?
-    os.system('mkdir -p "%s"' % output_dir)
-    os.system('mkdir -p "%s"' % scratch_dir)
-    os.system('mkdir -p "%s"' % log_dir)
+    os.system('mkdir -p ' + output_dir)
+    os.system('mkdir -p ' + data_dir + 'scratch/')
+    os.system('mkdir -p ' + data_dir + 'log/')
 
     ###########################################
     logline_start_time = "process sample starts: " +  datetime.now().isoformat('_') + '\n'
-    with open(log_dir + 'log.txt', 'a') as handle:
+    with open(data_dir + 'log/log.txt', 'a') as handle:
         handle.write(logline_start_time)
     # print(logline_start_time, end ='')
 
     print("param_values : ")
     print(json.dumps(param_values, indent=4, sort_keys=True))
     results = "Hello BaseSpace App\n"
-    results += payloadfunc(param_values, scratch_dir)
+    results += globals()[payloadfunc](param_values, data_dir)
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)
-    # copytree(scratch_dir, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
-    copytree(scratch_dir, output_dir + '../sessiondetails/'
+    # copytree(data_dir + 'scratch/', output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
+    copytree(data_dir + 'scratch/', output_dir + '../sessiondetails/')
 
     logline_end_time = "end process sample ends: " + datetime.now().isoformat('_') + '\n'
-    with open(log_dir + 'log.txt', 'a') as handle:
+    with open(data_dir + 'log/log.txt', 'a') as handle:
         handle.write(logline_end_time)
     # print(logline_end_time, end ='')
     ############################################
@@ -208,16 +206,16 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
 # default payload
 ###################
 
-def dump_parameters(params_values, scratch_dir):
+def dump_parameters(params_values, data_dir):
     """
-    do stuff with data in params_value, saving files into scratch_dir
+    do stuff with data in params_value, saving files into data_dir
     :param params_values:
-    :param scratch_dir:
+    :param data_dir:
     :return:
     """
     result = "Bonjour!\n"
     print(result)
-    filepath = scratch_dir + 'parameters.csv'
+    filepath = data_dir + 'scratch/parameters.csv'
     # result = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
     with open(filepath, 'w') as filehandle:
         filehandle.write(result)
@@ -238,6 +236,8 @@ def main(datadir='/data/', payloadfunc=dump_parameters):
     # print(">>>os.listdir(datadir)")
     # print(os.listdir(datadir))
     # print("---")
+
+
     appsessionhref, appsessionparams = read_appsession(datadir + 'input/AppSession.json')
     param_values = parse_appsessionparams(appsessionparams)
     process_appsession(appsessionhref, param_values, datadir, payloadfunc)
@@ -248,7 +248,7 @@ parser.add_argument('datadir',
                     help='directory path containing input/AppSession.json and input/samples/'
                     )
 parser.add_argument('payloadfunc',
-                    help='payload python function, should take 2 args: params_values, scratch_dir'
+                    help='payload python function, should take 2 args: params_values, data_dir'
                     )
 
 

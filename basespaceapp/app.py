@@ -189,7 +189,8 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)
-    copytree(scratch_dir, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
+    # copytree(scratch_dir, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
+    copytree(scratch_dir, output_dir + '../sessiondetails/'
 
     logline_end_time = "end process sample ends: " + datetime.now().isoformat('_') + '\n'
     with open(log_dir + 'log.txt', 'a') as handle:
@@ -215,10 +216,11 @@ def dump_parameters(params_values, scratch_dir):
     :return:
     """
     result = "Bonjour!\n"
-    # filepath = scratch_dir + 'parameters.csv'
+    print(result)
+    filepath = scratch_dir + 'parameters.csv'
     # result = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
-    # with open(filepath, 'w') as filehandle:
-    #     filehandle.write(result)
+    with open(filepath, 'w') as filehandle:
+        filehandle.write(result)
     return result
 
 
@@ -249,9 +251,9 @@ parser.add_argument('payloadfunc',
                     help='payload python function, should take 2 args: params_values, scratch_dir'
                     )
 
+
 # this file executed as script
 ##############################
-
 if __name__ == '__main__':
     args = parser.parse_args()
     main(args.datadir, args.payloadfunc)

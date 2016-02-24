@@ -1,0 +1,334 @@
+{
+  "OriginatingUri": "https://basespace.illumina.com",
+  "Id": "32965291",
+  "Name": "crispr 02/23/2016 2:36:24",
+  "Href": "v1pre3/appsessions/32965291",
+  "Application": {
+    "Id": "2463461",
+    "Href": "v1pre3/applications/2463461",
+    "Name": "crispr",
+    "CompanyName": "Alain Domissy",
+    "VersionNumber": "0.0.1",
+    "HomepageUri": "https://developer.basespace.illumina.com/docs/content/documentation/native-apps/spacedock-conventions#AccesstheGenomesFolderForGenomeReferenceData",
+    "ShortDescription": "crispr",
+    "DateCreated": "2016-01-14T15:56:07.0000000",
+    "PublishStatus": "Beta",
+    "IsBillingActivated": false,
+    "Category": "Native",
+    "Classifications": [
+      "SmallRNA"
+    ],
+    "AppFamilySlug": "alain-domissy.crispr",
+    "AppVersionSlug": "alain-domissy.crispr.0.0.1",
+    "Features": []
+  },
+  "UserCreatedBy": {
+    "Id": "7036038",
+    "Href": "v1pre3/users/7036038",
+    "Name": "Alain Domissy",
+    "DateCreated": "0001-01-01T00:00:00.0000000",
+    "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+  },
+  "Status": "Initializing",
+  "StatusSummary": "",
+  "DateCreated": "2016-02-24T00:20:50.0503779Z",
+  "ModifiedOn": "2016-02-24T00:20:50.3941270Z",
+  "Properties": {
+    "Items": [
+      {
+        "Type": "string",
+        "Href": "v1pre3/appsessions/32965291/properties/BaseSpace.Private.IsMultiNode",
+        "Name": "BaseSpace.Private.IsMultiNode",
+        "Description": "",
+        "Content": "False"
+      },
+      {
+        "Type": "string",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.app-session-name",
+        "Name": "Input.app-session-name",
+        "Description": "Analysis Name",
+        "Content": "crispr 02/23/2016 2:36:24"
+      },
+
+      {
+        "Type": "string[]",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.checkbox-1",
+        "Name": "Input.checkbox-1",
+        "Description": "checkbox control",
+        "Items": [
+          "50"
+        ],
+        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.checkbox-1/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      },
+      {
+        "Type": "string",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.circles",
+        "Name": "Input.circles",
+        "Description": "Located in how many circles",
+        "Content": "2"
+      },
+      {
+        "Type": "string",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.random-radio",
+        "Name": "Input.random-radio",
+        "Description": "Stranded?",
+        "Content": "1"
+      },
+      {
+        "Type": "string",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.textboxtext",
+        "Name": "Input.textboxtext",
+        "Description": "Textbox Text",
+        "Content": "replace me"
+      },
+
+      {
+        "Type": "project",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.project-id",
+        "Name": "Input.project-id",
+        "Description": "Save Results To",
+        "Content": {
+          "Id": "28728703",
+          "UserOwnedBy": {
+            "Id": "7036038",
+            "Href": "v1pre3/users/7036038",
+            "Name": "Alain Domissy",
+            "DateCreated": "0001-01-01T00:00:00.0000000",
+            "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+          },
+          "Href": "v1pre3/projects/28728703",
+          "Name": "pybasespace",
+          "Description": "",
+          "DateCreated": "2016-02-22T11:53:16.0000000",
+          "DateModified": "2016-02-23T15:57:03.0000000",
+          "HasCollaborators": false,
+          "TotalSize": 52
+        }
+      },
+      {
+        "Type": "map[]",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.project-id.attributes",
+        "Name": "Input.project-id.attributes",
+        "Description": "Save Results To Attributes",
+        "Items": [
+          [
+            {
+              "Key": "FieldId",
+              "Values": [
+                "project-id"
+              ]
+            },
+            {
+              "Key": "ResourceType",
+              "Values": [
+                "project"
+              ]
+            },
+            {
+              "Key": "ResourceId",
+              "Values": [
+                "28728703"
+              ]
+            },
+            {
+              "Key": "ResourceHref",
+              "Values": [
+                "v1pre3/projects/28728703"
+              ]
+            }
+          ]
+        ],
+        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.project-id.attributes/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      },
+      {
+        "Type": "project[]",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.Projects",
+        "Name": "Input.Projects",
+        "Description": "",
+        "Items": [
+          {
+            "Id": "28728703",
+            "UserOwnedBy": {
+              "Id": "7036038",
+              "Href": "v1pre3/users/7036038",
+              "Name": "Alain Domissy",
+              "DateCreated": "0001-01-01T00:00:00.0000000",
+              "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+            },
+            "Href": "v1pre3/projects/28728703",
+            "Name": "pybasespace",
+            "Description": "",
+            "DateCreated": "2016-02-22T11:53:16.0000000",
+            "DateModified": "2016-02-23T15:57:03.0000000",
+            "HasCollaborators": false,
+            "TotalSize": 52
+          }
+        ],
+        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.Projects/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      },
+
+      {
+        "Type": "sample",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.sample-id",
+        "Name": "Input.sample-id",
+        "Description": "Sample",
+        "Content": {
+          "Id": "10457448",
+          "Href": "v1pre3/samples/10457448",
+          "IsMerged": false,
+          "UserOwnedBy": {
+            "Id": "569571",
+            "Href": "v1pre3/users/569571",
+            "Name": "Mayank Tyagi",
+            "DateCreated": "0001-01-01T00:00:00.0000000",
+            "GravatarUrl": "https://secure.gravatar.com/avatar/300fb1f0db0919def56fdbe4f1a19525.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+          },
+          "Name": "truseqI1_8899 Name",
+          "SampleId": "truseqI1_8899 Name",
+          "Status": "Complete",
+          "StatusSummary": "",
+          "DateCreated": "2014-05-06T15:22:50.0000000",
+          "TotalSize": 3271320,
+          "Genome": {
+            "Id": "3",
+            "DisplayName": "Escherichia_coli_K_12_DH10B - NCBI (2008-03-17)",
+            "SpeciesName": "Escherichia coli",
+            "Source": "NCBI",
+            "Build": "2008-03-17",
+            "Href": "v1pre3/genomes/3"
+          },
+          "Read1": 51,
+          "Read2": 51,
+          "NumReadsPF": 32922,
+          "NumReadsRaw": 40131,
+          "TotalReadsRaw": 80262,
+          "TotalReadsPF": 65844,
+          "TotalClustersRaw": 40131,
+          "TotalClustersPF": 32922,
+          "IsPairedEnd": true
+        }
+      },
+      {
+        "Type": "map[]",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.sample-id.attributes",
+        "Name": "Input.sample-id.attributes",
+        "Description": "Sample Attributes",
+        "Items": [
+          [
+            {
+              "Key": "FieldId",
+              "Values": [
+                "sample-id"
+              ]
+            },
+            {
+              "Key": "ResourceType",
+              "Values": [
+                "sample"
+              ]
+            },
+            {
+              "Key": "ResourceId",
+              "Values": [
+                "10457448"
+              ]
+            },
+            {
+              "Key": "ResourceHref",
+              "Values": [
+                "v1pre3/samples/10457448"
+              ]
+            }
+          ]
+        ],
+        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.sample-id.attributes/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      },
+      {
+        "Type": "sample[]",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.Samples",
+        "Name": "Input.Samples",
+        "Description": "",
+        "Items": [
+          {
+            "Id": "10457448",
+            "Href": "v1pre3/samples/10457448",
+            "IsMerged": false,
+            "UserOwnedBy": {
+              "Id": "569571",
+              "Href": "v1pre3/users/569571",
+              "Name": "Mayank Tyagi",
+              "DateCreated": "0001-01-01T00:00:00.0000000",
+              "GravatarUrl": "https://secure.gravatar.com/avatar/300fb1f0db0919def56fdbe4f1a19525.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+            },
+            "Name": "truseqI1_8899 Name",
+            "SampleId": "truseqI1_8899 Name",
+            "Status": "Complete",
+            "StatusSummary": "",
+            "DateCreated": "2014-05-06T15:22:50.0000000",
+            "TotalSize": 3271320,
+            "Genome": {
+              "Id": "3",
+              "DisplayName": "Escherichia_coli_K_12_DH10B - NCBI (2008-03-17)",
+              "SpeciesName": "Escherichia coli",
+              "Source": "NCBI",
+              "Build": "2008-03-17",
+              "Href": "v1pre3/genomes/3"
+            },
+            "Read1": 51,
+            "Read2": 51,
+            "NumReadsPF": 32922,
+            "NumReadsRaw": 40131,
+            "TotalReadsRaw": 80262,
+            "TotalReadsPF": 65844,
+            "TotalClustersRaw": 40131,
+            "TotalClustersPF": 32922,
+            "IsPairedEnd": true
+          }
+        ],
+        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.Samples/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      },
+
+      {
+        "Type": "project[]",
+        "Href": "v1pre3/appsessions/32965291/properties/Output.Projects",
+        "Name": "Output.Projects",
+        "Description": "",
+        "Items": [
+          {
+            "Id": "28728703",
+            "UserOwnedBy": {
+              "Id": "7036038",
+              "Href": "v1pre3/users/7036038",
+              "Name": "Alain Domissy",
+              "DateCreated": "0001-01-01T00:00:00.0000000",
+              "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+            },
+            "Href": "v1pre3/projects/28728703",
+            "Name": "pybasespace",
+            "Description": "",
+            "DateCreated": "2016-02-22T11:53:16.0000000",
+            "DateModified": "2016-02-23T15:57:03.0000000",
+            "HasCollaborators": false,
+            "TotalSize": 52
+          }
+        ],
+        "HrefItems": "v1pre3/appsessions/32965291/properties/Output.Projects/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      }
+    ],
+    "DisplayedCount": 13,
+    "TotalCount": 13,
+    "Href": "v1pre3/appsessions/32965291/properties"
+  }
+}

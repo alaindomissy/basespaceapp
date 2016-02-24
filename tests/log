@@ -1,0 +1,106 @@
+	Aborted
+Error during post-application processing
+
+Logs (last checked 12:16:33am UTC)
+
+2016-02-24 00:16:01.980 [INFO ] - Downloading input data
+2016-02-24 00:16:02.502 [INFO ] - Downloading Samples...
+2016-02-24 00:16:02.601 [INFO ] - Downloading Sample 'truseqI1_8899 Name' (Id: 10457448; 2 files)
+2016-02-24 00:16:02.728 [INFO ] - Begin downloading file truseqI1-8899-Name_S12_L001_R1_001.fastq.gz.
+2016-02-24 00:16:03.441 [INFO ] - Downloading truseqI1-8899-Name_S12_L001_R1_001.fastq.gz (100% downloaded)
+2016-02-24 00:16:03.528 [INFO ] - Finished downloading file truseqI1-8899-Name_S12_L001_R1_001.fastq.gz (100% downloaded).
+2016-02-24 00:16:03.529 [INFO ] - Begin downloading file truseqI1-8899-Name_S12_L001_R2_001.fastq.gz.
+2016-02-24 00:16:04.194 [INFO ] - Downloading truseqI1-8899-Name_S12_L001_R2_001.fastq.gz (100% downloaded)
+2016-02-24 00:16:04.270 [INFO ] - Finished downloading file truseqI1-8899-Name_S12_L001_R2_001.fastq.gz (100% downloaded).
+2016-02-24 00:16:04.273 [INFO ] - Finished downloading Sample 'truseqI1_8899 Name' (Id: 10457448)
+2016-02-24 00:16:04.281 [INFO ] - Validating 'truseqI1-8899-Name_S12_L001_R1_001.fastq.gz'.
+2016-02-24 00:16:04.348 [INFO ] - Validating 'truseqI1-8899-Name_S12_L001_R2_001.fastq.gz'.
+2016-02-24 00:16:04.403 [INFO ] - No appresults to download
+2016-02-24 00:16:04.404 [INFO ] - No runs to download
+2016-02-24 00:16:04.937 [INFO ] - Preparing to download image
+2016-02-24 00:16:04.969 [INFO ] - Downloading application image (attempt 1).
+2016-02-24 00:16:21.179 [INFO ] - Finished downloading application image.
+
+�APPSESS /data/input/AppSession.json
+datadir + 'input/AppSession.json' /data/input/AppSession.json
+---
+>>>os.listdir(datadir + 'input/')
+['appresults', 'runs', 'samples', 'AppSession.json']
+---
+>>>os.listdir(datadir)
+['input', 'output', 'scratch', 'logs']
+---
+process sample starts:  2016-02-24_00:16:21.856942
+param_values :  {'output.projects_ids': u'28728703', 'input.samples': [{'href': u'v1pre3/samples/10457448', 'id': u'10457448', 'name': u'truseqI1_8899 Name'}], 'input.projects_ids': u'28728703'}
+end process sample ends:  2016-02-24_00:16:21.857067
+
+--------------
+_metadata.json
+--------------
+
+{
+    "Description": "Session Description",
+    "HrefAppSession": "v1pre3/appsessions/32966037",
+    "Name": "\nsessionsummary",
+    "Properties": [
+        {
+            "Items": [
+                "v1pre3/samples/10457448"
+            ],
+            "Name": "Input.Samples",
+            "Type": "sample[]"
+        }
+    ]
+}
+
+
+tack.ServiceClient.Web.ServiceClientBase.ThrowResponseTypeException[GetProjectResponse] (System.Object request, System.Exception ex, System.String requestUri) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.132 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.HandleResponseException[GetProjectResponse] (System.Exception ex, System.Object request, System.String requestUri, System.Func`1 createWebRequest, System.Func`2 getResponse, Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse& response) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.132 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.Send[GetProjectResponse] (System.String httpMethod, System.String relativeOrAbsoluteUrl, System.Object request) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.132 [ERROR] -   at Illumina.BaseSpace.SDK.ServiceModels.AbstractRequest`1+<>c__DisplayClass1[Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse].<GetSendFunc>b__0 () [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.132 [ERROR] -   at Illumina.BaseSpace.SDK.JsonWebClient+<>c__DisplayClass5`1[Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse].<Send>b__2 () [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.132 [ERROR] -   at Illumina.BaseSpace.SDK.RetryLogic.DoWithRetry (UInt32 maxAttempts, System.String description, System.Action op, ILog logger, Double retryIntervalBaseSecs, System.Action error, System.Func`2 retryHandler) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.133 [ERROR] -   --- End of inner exception stack trace ---
+2016-02-24 00:16:27.133 [ERROR] -   at Illumina.BaseSpace.SDK.JsonWebClient.Send[GetProjectResponse] (Illumina.BaseSpace.SDK.ServiceModels.AbstractRequest`1 request, IRequestOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.133 [ERROR] -   at Illumina.BaseSpace.SDK.BaseSpaceClient.GetProject (Illumina.BaseSpace.SDK.ServiceModels.GetProjectRequest request, IRequestOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.133 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.UploadParametersFactory.GetOrCreateProject (System.String projectIdOrName, IBaseSpaceClient client) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.133 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.UploadParametersFactory.CreateUploadParameters (Illumina.SpaceDock.Uploader.Host.UploadOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.134 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.Program.RunUploader (Illumina.SpaceDock.Uploader.Host.UploadOptions options, IWindsorContainer container) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.134 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.Program.ProcessArgs (IEnumerable`1 args) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:27.537 [INFO ] - Preparing to upload directory app results to 'sessionsummary_2016-02-24_00:16:21.805926'.
+2016-02-24 00:16:27.543 [INFO ] - Preparing to upload directory samples to ''.
+2016-02-24 00:16:28.114 [ERROR] - Illumina.BaseSpace.SDK.BaseSpaceException: GET:v1pre3/projects/None status: 404 (Not Found) Message: Project id 'None' doesn't exist (NotFound) ---> ServiceStack.ServiceClient.Web.WebServiceException: Not Found
+2016-02-24 00:16:28.114 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.ThrowWebServiceException[ErrorResponse] (System.Exception ex, System.String requestUri) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.114 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.ThrowResponseTypeException[GetProjectResponse] (System.Object request, System.Exception ex, System.String requestUri) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.114 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.HandleResponseException[GetProjectResponse] (System.Exception ex, System.Object request, System.String requestUri, System.Func`1 createWebRequest, System.Func`2 getResponse, Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse& response) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.115 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.Send[GetProjectResponse] (System.String httpMethod, System.String relativeOrAbsoluteUrl, System.Object request) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.115 [ERROR] -   at Illumina.BaseSpace.SDK.ServiceModels.AbstractRequest`1+<>c__DisplayClass1[Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse].<GetSendFunc>b__0 () [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.115 [ERROR] -   at Illumina.BaseSpace.SDK.JsonWebClient+<>c__DisplayClass5`1[Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse].<Send>b__2 () [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.115 [ERROR] -   at Illumina.BaseSpace.SDK.RetryLogic.DoWithRetry (UInt32 maxAttempts, System.String description, System.Action op, ILog logger, Double retryIntervalBaseSecs, System.Action error, System.Func`2 retryHandler) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.115 [ERROR] -   --- End of inner exception stack trace ---
+2016-02-24 00:16:28.116 [ERROR] -   at Illumina.BaseSpace.SDK.JsonWebClient.Send[GetProjectResponse] (Illumina.BaseSpace.SDK.ServiceModels.AbstractRequest`1 request, IRequestOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.116 [ERROR] -   at Illumina.BaseSpace.SDK.BaseSpaceClient.GetProject (Illumina.BaseSpace.SDK.ServiceModels.GetProjectRequest request, IRequestOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.116 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.UploadParametersFactory.GetOrCreateProject (System.String projectIdOrName, IBaseSpaceClient client) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.116 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.UploadParametersFactory.CreateUploadParameters (Illumina.SpaceDock.Uploader.Host.UploadOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.116 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.Program.RunUploader (Illumina.SpaceDock.Uploader.Host.UploadOptions options, IWindsorContainer container) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.117 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.Program.ProcessArgs (IEnumerable`1 args) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:28.544 [INFO ] - Preparing to upload directory app results to 'sessionsummary_2016-02-24_00:16:21.805926'.
+2016-02-24 00:16:28.550 [INFO ] - Preparing to upload directory samples to ''.
+2016-02-24 00:16:29.155 [ERROR] - Illumina.BaseSpace.SDK.BaseSpaceException: GET:v1pre3/projects/None status: 404 (Not Found) Message: Project id 'None' doesn't exist (NotFound) ---> ServiceStack.ServiceClient.Web.WebServiceException: Not Found
+2016-02-24 00:16:29.155 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.ThrowWebServiceException[ErrorResponse] (System.Exception ex, System.String requestUri) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.155 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.ThrowResponseTypeException[GetProjectResponse] (System.Object request, System.Exception ex, System.String requestUri) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.155 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.HandleResponseException[GetProjectResponse] (System.Exception ex, System.Object request, System.String requestUri, System.Func`1 createWebRequest, System.Func`2 getResponse, Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse& response) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.156 [ERROR] -   at ServiceStack.ServiceClient.Web.ServiceClientBase.Send[GetProjectResponse] (System.String httpMethod, System.String relativeOrAbsoluteUrl, System.Object request) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.156 [ERROR] -   at Illumina.BaseSpace.SDK.ServiceModels.AbstractRequest`1+<>c__DisplayClass1[Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse].<GetSendFunc>b__0 () [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.156 [ERROR] -   at Illumina.BaseSpace.SDK.JsonWebClient+<>c__DisplayClass5`1[Illumina.BaseSpace.SDK.ServiceModels.GetProjectResponse].<Send>b__2 () [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.156 [ERROR] -   at Illumina.BaseSpace.SDK.RetryLogic.DoWithRetry (UInt32 maxAttempts, System.String description, System.Action op, ILog logger, Double retryIntervalBaseSecs, System.Action error, System.Func`2 retryHandler) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.156 [ERROR] -   --- End of inner exception stack trace ---
+2016-02-24 00:16:29.157 [ERROR] -   at Illumina.BaseSpace.SDK.JsonWebClient.Send[GetProjectResponse] (Illumina.BaseSpace.SDK.ServiceModels.AbstractRequest`1 request, IRequestOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.157 [ERROR] -   at Illumina.BaseSpace.SDK.BaseSpaceClient.GetProject (Illumina.BaseSpace.SDK.ServiceModels.GetProjectRequest request, IRequestOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.157 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.UploadParametersFactory.GetOrCreateProject (System.String projectIdOrName, IBaseSpaceClient client) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.157 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.UploadParametersFactory.CreateUploadParameters (Illumina.SpaceDock.Uploader.Host.UploadOptions options) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.157 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.Program.RunUploader (Illumina.SpaceDock.Uploader.Host.UploadOptions options, IWindsorContainer container) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.158 [ERROR] -   at Illumina.SpaceDock.Uploader.Host.Program.ProcessArgs (IEnumerable`1 args) [0x00000] in <filename unknown>:0
+2016-02-24 00:16:29.175 [ERROR] - Error uploading AppResult, returned exit code 255 after 5 attempts
+2016-02-24 00:16:29.414 [INFO ] - Log file 'spacedock-20160224001629254.log' written to https://aws-api.basespace.illumina.com/v1pre3/files/3382672926/content
+2016-02-24 00:16:29.748 [INFO ] - Log file 'spacedock-infrastructure-20160224001629416.log' written to https://aws-api.basespace.illumina.com/v1pre3/files/3382676895/content

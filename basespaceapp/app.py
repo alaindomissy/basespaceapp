@@ -22,6 +22,11 @@ from .config import APPSESS, ARGUMENTS_WITH_CONTENT, ARGUMENTS_WITH_ITEMS
 
 
 def read_appsession(appsession_jsonfilename):
+    """
+
+    :param appsession_jsonfilename:
+    :return:
+    """
     with open(appsession_jsonfilename) as hdl:
         appsession = json.load(hdl)
     appsessionparams = appsession['Properties']['Items']
@@ -160,7 +165,7 @@ def process_appsession(appsessionhref, param_values, datadir):
     ############################################
 
     # TODO check why the output_dir is created inside the payload call, then move print metadatqa to before the payload
-    write_metadata('\nsessionsummary','Session Description', appsessionhref, sampleshrefs, output_dir)
+    write_metadata('sessionsummary','Session Description', appsessionhref, sampleshrefs, output_dir)
     # write_params(param_values, output_dir)
     # if results:
     #     write_results(results, output_dir)
@@ -177,7 +182,6 @@ def main(datadir='/data/'):
     print("---")
     # print("type(APPSESS)", type(APPSESS))
     # assert(APPSESS == datadir + 'input/AppSession.json')
-
     print(">>>os.listdir(datadir + 'input/')")
     print(os.listdir(datadir + 'input/'))
     print("---")
@@ -186,15 +190,10 @@ def main(datadir='/data/'):
     print("---")
     appsessionhref, appsessionparams = read_appsession(datadir + 'input/AppSession.json')
     param_values = parse_appsessionparams(appsessionparams)
-
-    # appsessionhref, appsessionparams = read_appsession(APPSESS)
-    # param_values = parse_appsessionparams(appsessionparams)
-
     process_appsession(appsessionhref, param_values, datadir)
 
 
 parser = argparse.ArgumentParser(description='app, a sample app to test basespace native app platform')
-
 parser.add_argument('datadir',
                     help='directory path containing input/AppSession.json and samples/'
                     )

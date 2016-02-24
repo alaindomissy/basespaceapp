@@ -61,44 +61,61 @@ def main(datadir='/data/'):
     sampleName = []
     sampleDir = []
     for index in range(numberOfPropertyItems):
-        # add parameters to parameters list
-        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.textboxtext':
+
+        # add parameters to parameters list to catch form fields per tutorial
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.textbox-1':
             parameter = jsonObject['Properties']['Items'][index]['Content']
             parameter_list.append(parameter)
-        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.random-radio':
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.numeric-1':
+            parameter = jsonObject['Properties']['Items'][index]['Content']
+            parameter_list.append(parameter)
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.radio-1':
             parameter = jsonObject['Properties']['Items'][index]['Content']
             parameter_list.append(parameter)
         if jsonObject['Properties']['Items'][index]['Name'] == 'Input.checkbox-1':
             parameter = jsonObject['Properties']['Items'][index]['Items'][0]
             parameter_list.append(parameter)
-        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.circles':
+
+        # add parameters to parameters list to catch dummy fields from test file
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.param1':
             parameter = jsonObject['Properties']['Items'][index]['Content']
             parameter_list.append(parameter)
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.param2':
+            parameter = jsonObject['Properties']['Items'][index]['Content']
+            parameter_list.append(parameter)
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.param3':
+            parameter = jsonObject['Properties']['Items'][index]['Items']
+            parameter_list.append(parameter)
+        if jsonObject['Properties']['Items'][index]['Name'] == 'Input.param4':
+            parameter = jsonObject['Properties']['Items'][index]['Items']
+            parameter_list.append(parameter)
+
         # set project ID
+        # TODO this now gets id from the first in the list only - what happens if there is more then one in that list ?
         if jsonObject['Properties']['Items'][index]['Name'] == 'Input.Projects':
             projectID = jsonObject['Properties']['Items'][index]['Items'][0]['Id']
 
     for index in range(numberOfPropertyItems):
         # set sample parameters
         if jsonObject['Properties']['Items'][index]['Name'] == 'Input.Samples':
-            for sample in range(len(jsonObject['Properties']['Items'][index]['Items'])):
-                sampleID.append(jsonObject['Properties']['Items'][index]['Items'][sample]['Id'])
-                sampleHref.append(jsonObject['Properties']['Items'][index]['Items'][sample]['Href'])
-                sampleName.append(jsonObject['Properties']['Items'][index]['Items'][sample]['Name'])
+            for sampleindex in range(len(jsonObject['Properties']['Items'][index]['Items'])):
+                sampleID.append(jsonObject['Properties']['Items'][index]['Items'][sampleindex]['Id'])
+                sampleHref.append(jsonObject['Properties']['Items'][index]['Items'][sampleindex]['Href'])
+                sampleName.append(jsonObject['Properties']['Items'][index]['Items'][sampleindex]['Name'])
 
-                sampleDir = datadir + 'input/samples/%s/Data/Intensities/BaseCalls' % (sampleID[sample])
+                sampleDir = datadir + 'input/samples/%s/Data/Intensities/BaseCalls' % (sampleID[sampleindex])
                 if not os.path.exists(sampleDir):
-                    sampleDir = datadir + 'input/samples/%s' % (sampleID[sample])
+                    sampleDir = datadir + 'input/samples/%s' % (sampleID[sampleindex])
 
                 # TODO issue with "number of R1 and R2 files do not match" check,
-                # for root, dirs, files in os.walk(sampleDir[sample]):
+                # for root, dirs, files in os.walk(sampleDir[sampleindex]):
                 #     R1files = fnmatch.filter(files, '*_R1_*')
                 #     R2files = fnmatch.filter(files, '*_R2_*')
                 #     if len(R1files) != len(R2files):
                 #         print("number of R1 and R2 files do not match")
                 #         sys.exit()
 
-                sampleOutDir = datadir + 'output/appresults/%s/%s' % (projectID, sampleName[sample])
+                sampleOutDir = datadir + 'output/appresults/%s/%s' % (projectID, sampleName[sampleindex])
                 os.system('mkdir -p "%s"' % (sampleOutDir))
 
                 # create output file and print parameters to output file (this is where you would run the command)
@@ -116,9 +133,10 @@ def main(datadir='/data/'):
                 metadataObject = metadatajson()
                 metaJsonObject = json.loads(metadataObject)
                 # modify metadataObject
-                metaJsonObject['Name'] = jsonObject['Properties']['Items'][index]['Items'][sample]['Id']
+                metaJsonObject['Name'] = jsonObject['Properties']['Items'][index]['Items'][sampleindex]['Id']
                 metaJsonObject['Description'] = 'Sample Description'
                 metaJsonObject['HrefAppSession'] = jsonObject['Href']
+                # TODO sampleHref only contains info for samples iterated through so far - bug ?
                 for href in sampleHref:
                     metaJsonObject['Properties'][0]['Items'].append(href)
                 metadataFile = '%s/_metadata.json' % (sampleOutDir)

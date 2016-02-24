@@ -185,7 +185,7 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
     print("param_values : ")
     print(json.dumps(param_values, indent=4, sort_keys=True))
     results = "Hello BaseSpace App\n"
-    results += payloadfunc(param_values, scratch_dir)
+    # results += payloadfunc(param_values, scratch_dir)
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)

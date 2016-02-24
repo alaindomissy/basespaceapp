@@ -1,9 +1,0 @@
-output.projects	[{'name': 'crispr-eating buffet project 1', 'href': 'v1pre3/projects/27855842', 'id': '27855842'}]
-input.projects	[{'name': 'crispr-eating buffet project 1', 'href': 'v1pre3/projects/27855842', 'id': '27855842'}]
-input.param1	aaaa
-input.param2	bbbb
-input.param4	['dd', 'dd']
-input.project_id	27855842
-input.param3	['cc', 'cc']
-input.samples	[{'name': 'SRR1015697', 'href': 'v1pre3/samples/30427461', 'id': '30427461'}, {'name': 'SRR1015696', 'href': 'v1pre3/samples/30436467', 'id': '30436467'}]
-input.sample_id	[{'name': 'SRR1015697', 'href': 'v1pre3/samples/30427461', 'id': '30427461'}, {'name': 'SRR1015696', 'href': 'v1pre3/samples/30436467', 'id': '30436467'}]

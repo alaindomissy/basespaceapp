@@ -94,6 +94,7 @@ def main(datadir='/data/'):
         # TODO this now gets id from the first in the list only - what happens if there is more then one in that list ?
         if jsonObject['Properties']['Items'][index]['Name'] == 'Input.Projects':
             projectID = jsonObject['Properties']['Items'][index]['Items'][0]['Id']
+            parameter_list.append(projectID)
 
     for index in range(numberOfPropertyItems):
         # set sample parameters
@@ -139,10 +140,18 @@ def main(datadir='/data/'):
                 # TODO sampleHref only contains info for samples iterated through so far - bug ?
                 for href in sampleHref:
                     metaJsonObject['Properties'][0]['Items'].append(href)
+
+                metaJsonString = json.dumps(metaJsonObject, indent=4, sort_keys=True)
+
                 metadataFile = '%s/_metadata.json' % (sampleOutDir)
                 outMetadataFile = open(metadataFile, 'w')
-                json.dump(metaJsonObject, outMetadataFile)
+                # json.dump(metaJsonObject, outMetadataFile)
+                outMetadataFile.write(metaJsonString)
 
+                metadataFileVisible = '%s/metadata.txt' % (sampleOutDir)
+                outMetadataFileVisible = open(metadataFileVisible, 'w')
+                json.dump(metaJsonObject, outMetadataFileVisible)
+                outMetadataFileVisible.write(metaJsonString)
 
 parser = argparse.ArgumentParser(description='sampleapp, a sample app to test basespace native app platform')
 

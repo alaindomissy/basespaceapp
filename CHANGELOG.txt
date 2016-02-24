@@ -24,3 +24,9 @@
 ------------------
 
     - wheel support
+
+0.0.5 - 2016-02-24
+------------------
+
+    - payload now a parameter
+    - >> python -m basespaceapp.main /data/ default_payload

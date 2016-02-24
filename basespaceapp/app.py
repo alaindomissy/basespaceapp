@@ -213,10 +213,10 @@ def dump_parameters(params_values, data_dir):
     :param data_dir:
     :return:
     """
-    result = "Bonjour!\n"
+    result = "Default result string\n"
     print(result)
     filepath = data_dir + 'scratch/parameters.csv'
-    # result = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
+    result = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
     with open(filepath, 'w') as filehandle:
         filehandle.write(result)
     return result

@@ -206,27 +206,27 @@ def process_appsession(appsessionhref, param_values, data_dir, payloadfunc):
 # default payload
 ###################
 
-def dump_parameters(params_values, data_dir):
+def default_payload(params_values, data_dir):
     """
     do stuff with data in params_value, saving files into data_dir
     :param params_values:
     :param data_dir:
     :return:
     """
-    result = "Default result string\n"
+    results = "results default string\n"
     print(result)
     filepath = data_dir + 'scratch/parameters.csv'
-    result = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
+    results = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
     with open(filepath, 'w') as filehandle:
-        filehandle.write(result)
-    return result
+        filehandle.write(results)
+    return results
 
 
 ###################
 # MAIN API FUNCTION
 ###################
 
-def main(datadir='/data/', payloadfunc=dump_parameters):
+def main(datadir='/data/', payloadfunc=default_payload):
     # print("APPSESS", APPSESS )
     # print("datadir + 'input/AppSession.json'" , datadir + 'input/AppSession.json')
     # print("---")

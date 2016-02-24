@@ -85,95 +85,6 @@
       },
 
       {
-        "Type": "project",
-        "Href": "v1pre3/appsessions/32965291/properties/Input.project-id",
-        "Name": "Input.project-id",
-        "Description": "Save Results To",
-        "Content": {
-          "Id": "28728703",
-          "UserOwnedBy": {
-            "Id": "7036038",
-            "Href": "v1pre3/users/7036038",
-            "Name": "Alain Domissy",
-            "DateCreated": "0001-01-01T00:00:00.0000000",
-            "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
-          },
-          "Href": "v1pre3/projects/28728703",
-          "Name": "pybasespace",
-          "Description": "",
-          "DateCreated": "2016-02-22T11:53:16.0000000",
-          "DateModified": "2016-02-23T15:57:03.0000000",
-          "HasCollaborators": false,
-          "TotalSize": 52
-        }
-      },
-      {
-        "Type": "map[]",
-        "Href": "v1pre3/appsessions/32965291/properties/Input.project-id.attributes",
-        "Name": "Input.project-id.attributes",
-        "Description": "Save Results To Attributes",
-        "Items": [
-          [
-            {
-              "Key": "FieldId",
-              "Values": [
-                "project-id"
-              ]
-            },
-            {
-              "Key": "ResourceType",
-              "Values": [
-                "project"
-              ]
-            },
-            {
-              "Key": "ResourceId",
-              "Values": [
-                "28728703"
-              ]
-            },
-            {
-              "Key": "ResourceHref",
-              "Values": [
-                "v1pre3/projects/28728703"
-              ]
-            }
-          ]
-        ],
-        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.project-id.attributes/items",
-        "ItemsDisplayedCount": 1,
-        "ItemsTotalCount": 1
-      },
-      {
-        "Type": "project[]",
-        "Href": "v1pre3/appsessions/32965291/properties/Input.Projects",
-        "Name": "Input.Projects",
-        "Description": "",
-        "Items": [
-          {
-            "Id": "28728703",
-            "UserOwnedBy": {
-              "Id": "7036038",
-              "Href": "v1pre3/users/7036038",
-              "Name": "Alain Domissy",
-              "DateCreated": "0001-01-01T00:00:00.0000000",
-              "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
-            },
-            "Href": "v1pre3/projects/28728703",
-            "Name": "pybasespace",
-            "Description": "",
-            "DateCreated": "2016-02-22T11:53:16.0000000",
-            "DateModified": "2016-02-23T15:57:03.0000000",
-            "HasCollaborators": false,
-            "TotalSize": 52
-          }
-        ],
-        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.Projects/items",
-        "ItemsDisplayedCount": 1,
-        "ItemsTotalCount": 1
-      },
-
-      {
         "Type": "sample",
         "Href": "v1pre3/appsessions/32965291/properties/Input.sample-id",
         "Name": "Input.sample-id",
@@ -251,6 +162,68 @@
         "ItemsDisplayedCount": 1,
         "ItemsTotalCount": 1
       },
+
+      {
+        "Type": "project",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.project-id",
+        "Name": "Input.project-id",
+        "Description": "Save Results To",
+        "Content": {
+          "Id": "28728703",
+          "UserOwnedBy": {
+            "Id": "7036038",
+            "Href": "v1pre3/users/7036038",
+            "Name": "Alain Domissy",
+            "DateCreated": "0001-01-01T00:00:00.0000000",
+            "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+          },
+          "Href": "v1pre3/projects/28728703",
+          "Name": "pybasespace",
+          "Description": "",
+          "DateCreated": "2016-02-22T11:53:16.0000000",
+          "DateModified": "2016-02-23T15:57:03.0000000",
+          "HasCollaborators": false,
+          "TotalSize": 52
+        }
+      },
+      {
+        "Type": "map[]",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.project-id.attributes",
+        "Name": "Input.project-id.attributes",
+        "Description": "Save Results To Attributes",
+        "Items": [
+          [
+            {
+              "Key": "FieldId",
+              "Values": [
+                "project-id"
+              ]
+            },
+            {
+              "Key": "ResourceType",
+              "Values": [
+                "project"
+              ]
+            },
+            {
+              "Key": "ResourceId",
+              "Values": [
+                "28728703"
+              ]
+            },
+            {
+              "Key": "ResourceHref",
+              "Values": [
+                "v1pre3/projects/28728703"
+              ]
+            }
+          ]
+        ],
+        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.project-id.attributes/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      },
+
       {
         "Type": "sample[]",
         "Href": "v1pre3/appsessions/32965291/properties/Input.Samples",
@@ -297,7 +270,34 @@
         "ItemsDisplayedCount": 1,
         "ItemsTotalCount": 1
       },
-
+      {
+        "Type": "project[]",
+        "Href": "v1pre3/appsessions/32965291/properties/Input.Projects",
+        "Name": "Input.Projects",
+        "Description": "",
+        "Items": [
+          {
+            "Id": "28728703",
+            "UserOwnedBy": {
+              "Id": "7036038",
+              "Href": "v1pre3/users/7036038",
+              "Name": "Alain Domissy",
+              "DateCreated": "0001-01-01T00:00:00.0000000",
+              "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+            },
+            "Href": "v1pre3/projects/28728703",
+            "Name": "pybasespace",
+            "Description": "",
+            "DateCreated": "2016-02-22T11:53:16.0000000",
+            "DateModified": "2016-02-23T15:57:03.0000000",
+            "HasCollaborators": false,
+            "TotalSize": 52
+          }
+        ],
+        "HrefItems": "v1pre3/appsessions/32965291/properties/Input.Projects/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      },
       {
         "Type": "project[]",
         "Href": "v1pre3/appsessions/32965291/properties/Output.Projects",

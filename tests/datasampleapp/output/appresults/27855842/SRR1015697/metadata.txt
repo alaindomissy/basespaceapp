@@ -1,0 +1,14 @@
+{
+    "Description": "Sample Description",
+    "HrefAppSession": "v1pre3/appsessions/31951397",
+    "Name": "30427461",
+    "Properties": [
+        {
+            "Items": [
+                "v1pre3/samples/30427461"
+            ],
+            "Name": "Input.Samples",
+            "Type": "sample[]"
+        }
+    ]
+}

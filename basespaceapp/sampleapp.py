@@ -150,7 +150,7 @@ def main(datadir='/data/'):
 
                 metadataFileVisible = '%s/metadata.txt' % (sampleOutDir)
                 outMetadataFileVisible = open(metadataFileVisible, 'w')
-                json.dump(metaJsonObject, outMetadataFileVisible)
+                # json.dump(metaJsonObject, outMetadataFileVisible)
                 outMetadataFileVisible.write(metaJsonString)
 
 parser = argparse.ArgumentParser(description='sampleapp, a sample app to test basespace native app platform')

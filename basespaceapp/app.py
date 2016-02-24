@@ -51,32 +51,48 @@ def parse_appsessionparams(appsessionparams, arguments_with_content=ARGUMENTS_WI
         }
     )
 
+    # TODO redundant data in the AppSession.json file - ignore ?
+    param_values.update(
+        {'input.sample_id':
+            [{'id': sample['Id'], 'href':sample['Href'], 'name': sample['Name']}
+             for param in appsessionparams
+             if param.get('Name').lower() == 'input.sample-id'
+             for sample in param.get('Items')
+            ]
+        }
+    )
+    # TODO redundant data in the AppSession.json file - but only one project ? -  ignore ?
     param_values.update(
         {'input.project_id': param.get('Content').get('Id')
          for param in appsessionparams
-         if param.get('Name') == 'Input.project_id'
+         if param.get('Name').lower() == 'input.project-id'
         }
     )
-    param_values.update(
-        {'input.projects_ids': project.get('Id')
-         for param in appsessionparams
-         if param.get('Name') == 'Input.Projects'
-         for project in param['Items']
-        }
-    )
-    param_values.update(
-        {'output.projects_ids': project.get('Id')
-         for param in appsessionparams
-         if param.get('Name') == 'Output.Projects'
-         for project in param.get('Items')
-        }
-    )
+
     param_values.update(
         {'input.samples':
             [{'id': sample['Id'], 'href':sample['Href'], 'name': sample['Name']}
              for param in appsessionparams
-             if param.get('Name') == 'Input.Samples'
+             if param.get('Name').lower() == 'input.samples'
              for sample in param.get('Items')
+            ]
+        }
+    )
+    param_values.update(
+        {'input.projects':
+            [{'id': project['Id'], 'href':project['Href'], 'name': project['Name']}
+             for param in appsessionparams
+             if param.get('Name').lower() == 'input.projects'
+             for project in param.get('Items')
+            ]
+        }
+    )
+    param_values.update(
+        {'output.projects':
+            [{'id': project['Id'], 'href':project['Href'], 'name': project['Name']}
+             for param in appsessionparams
+             if param.get('Name').lower() == 'output.projects'
+             for project in param.get('Items')
             ]
         }
     )
@@ -122,7 +138,7 @@ def write_results(results, output_dir):
           '-------------------\n')
     print(str(results))
     print()
-    with open(output_dir + '/payload_results.txt','w') as out:
+    with open(output_dir + 'payload_results.txt','w') as out:
         out.write(str(results))
 
 
@@ -130,10 +146,10 @@ def write_params(param_values, output_dir):
     print('--------------------\n'
           'appsessionparams.csv\n'
           '--------------------\n')
-    with open(output_dir + '/appsessionparams.csv','w') as out:
+    with open(output_dir + 'appsessionparams.csv','w') as out:
         for key, value in iteritems(param_values):
             line = '%s\t%s\n' % (key,value)
-            if key != 'input.samples':
+            if True:   # key != 'input.samples':
                 out.write(line)
                 print(line)
     print()
@@ -141,7 +157,7 @@ def write_params(param_values, output_dir):
 
 def process_appsession(appsessionhref, param_values, datadir):
 
-    project_id = param_values.get('input.project_id')
+    project_id = param_values.get('input.projects')[0]['id']
     samples = param_values.get('input.samples')
     sampleshrefs = [sample['href'] for sample in samples]
 
@@ -159,16 +175,18 @@ def process_appsession(appsessionhref, param_values, datadir):
 
     ###########################################
     print("process sample starts: ",  datetime.now().isoformat('_'))
-    print("param_values : ", param_values)
+    print("param_values : ")
+    print(json.dumps(param_values, indent=4, sort_keys=True))
+    results = "Hello BaseSpace App"
     # results = payload(param_values, output_dir, scratch_dir)
     print("end process sample ends: ",  datetime.now().isoformat('_'))
     ############################################
 
     # TODO check why the output_dir is created inside the payload call, then move print metadatqa to before the payload
     write_metadata('sessionsummary','Session Description', appsessionhref, sampleshrefs, output_dir)
-    # write_params(param_values, output_dir)
-    # if results:
-    #     write_results(results, output_dir)
+    write_params(param_values, output_dir)
+    if results:
+        write_results(results, output_dir)
 
 
 ###################
@@ -177,17 +195,15 @@ def process_appsession(appsessionhref, param_values, datadir):
 
 
 def main(datadir='/data/'):
-    print("APPSESS", APPSESS )
-    print("datadir + 'input/AppSession.json'" , datadir + 'input/AppSession.json')
-    print("---")
-    # print("type(APPSESS)", type(APPSESS))
-    # assert(APPSESS == datadir + 'input/AppSession.json')
-    print(">>>os.listdir(datadir + 'input/')")
-    print(os.listdir(datadir + 'input/'))
-    print("---")
-    print(">>>os.listdir(datadir)")
-    print(os.listdir(datadir))
-    print("---")
+    # print("APPSESS", APPSESS )
+    # print("datadir + 'input/AppSession.json'" , datadir + 'input/AppSession.json')
+    # print("---")
+    # print(">>>os.listdir(datadir + 'input/')")
+    # print(os.listdir(datadir + 'input/'))
+    # print("---")
+    # print(">>>os.listdir(datadir)")
+    # print(os.listdir(datadir))
+    # print("---")
     appsessionhref, appsessionparams = read_appsession(datadir + 'input/AppSession.json')
     param_values = parse_appsessionparams(appsessionparams)
     process_appsession(appsessionhref, param_values, datadir)

@@ -77,65 +77,7 @@
       },
 
 
-      {
-        "Type": "project",
-        "Href": "v1pre3/appsessions/31951397/properties/Input.project_id",
-        "Name": "Input.project_id",
-        "Description": "under project",
-        "Content": {
-          "Id": "27855842",
-          "UserOwnedBy": {
-            "Id": "7036038",
-            "Href": "v1pre3/users/7036038",
-            "Name": "Alain Domissy",
-            "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
-          },
-          "Href": "v1pre3/projects/27855842",
-          "Name": "crispr-eating buffet project 1",
-          "Description": "crispr-eating buffet project 1",
-          "DateCreated": "2016-01-14T22:02:43.0000000",
-          "DateModified": "2016-01-14T22:02:43.0000000",
-          "HasCollaborators": false,
-          "TotalSize": 0
-        }
-      },
-      {
-        "Type": "map[]",
-        "Href": "v1pre3/appsessions/31951397/properties/Input.project_id.attributes",
-        "Name": "Input.project_id.attributes",
-        "Description": "under project Attributes",
-        "Items": [
-          [
-            {
-              "Key": "FieldId",
-              "Values": [
-                "project_id"
-              ]
-            },
-            {
-              "Key": "ResourceType",
-              "Values": [
-                "project"
-              ]
-            },
-            {
-              "Key": "ResourceId",
-              "Values": [
-                "27855842"
-              ]
-            },
-            {
-              "Key": "ResourceHref",
-              "Values": [
-                "v1pre3/projects/27855842"
-              ]
-            }
-          ]
-        ],
-        "HrefItems": "v1pre3/appsessions/31951397/properties/Input.project_id.attributes/items",
-        "ItemsDisplayedCount": 1,
-        "ItemsTotalCount": 1
-      },
+
       {
         "Type": "sample[]",
         "Href": "v1pre3/appsessions/31951397/properties/Input.sample-id",
@@ -282,6 +224,66 @@
         "ItemsDisplayedCount": 2,
         "ItemsTotalCount": 2
       },
+      {
+        "Type": "project",
+        "Href": "v1pre3/appsessions/31951397/properties/Input.project-id",
+        "Name": "Input.project-id",
+        "Description": "under project",
+        "Content": {
+          "Id": "27855842",
+          "UserOwnedBy": {
+            "Id": "7036038",
+            "Href": "v1pre3/users/7036038",
+            "Name": "Alain Domissy",
+            "GravatarUrl": "https://secure.gravatar.com/avatar/c1de6e99641cad724d70888ea039b087.jpg?s=20&d=https%3a%2f%2fbasespace.illumina.com%2fpublic%2fimages%2fDefaultCustomerGravatar.png&r=PG"
+          },
+          "Href": "v1pre3/projects/27855842",
+          "Name": "crispr-eating buffet project 1",
+          "Description": "crispr-eating buffet project 1",
+          "DateCreated": "2016-01-14T22:02:43.0000000",
+          "DateModified": "2016-01-14T22:02:43.0000000",
+          "HasCollaborators": false,
+          "TotalSize": 0
+        }
+      },
+      {
+        "Type": "map[]",
+        "Href": "v1pre3/appsessions/31951397/properties/Input.project-id.attributes",
+        "Name": "Input.project-id.attributes",
+        "Description": "under project Attributes",
+        "Items": [
+          [
+            {
+              "Key": "FieldId",
+              "Values": [
+                "project_id"
+              ]
+            },
+            {
+              "Key": "ResourceType",
+              "Values": [
+                "project"
+              ]
+            },
+            {
+              "Key": "ResourceId",
+              "Values": [
+                "27855842"
+              ]
+            },
+            {
+              "Key": "ResourceHref",
+              "Values": [
+                "v1pre3/projects/27855842"
+              ]
+            }
+          ]
+        ],
+        "HrefItems": "v1pre3/appsessions/31951397/properties/Input.project_id.attributes/items",
+        "ItemsDisplayedCount": 1,
+        "ItemsTotalCount": 1
+      },
+
 
       {
         "Type": "sample[]",

@@ -4,7 +4,7 @@
 #
 # APP
 #
-# API functions:
+# API functions: main
 #
 # this is a refactored and extended version of the sampleapp.py (the basespace documentation example)
 # intended to be run as a script (if __name__ == '__main__': code)
@@ -16,9 +16,9 @@ import json
 import argparse
 import os
 from six import iteritems
+from shutil import copytree
 from datetime import datetime
-from .payload import payload
-from .config import APPSESS, ARGUMENTS_WITH_CONTENT, ARGUMENTS_WITH_ITEMS
+from .config import ARGUMENTS_WITH_CONTENT, ARGUMENTS_WITH_ITEMS
 
 
 def read_appsession(appsession_jsonfilename):
@@ -155,7 +155,7 @@ def write_params(param_values, output_dir):
     print()
 
 
-def process_appsession(appsessionhref, param_values, datadir):
+def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
 
     project_id = param_values.get('input.projects')[0]['id']
     samples = param_values.get('input.samples')
@@ -169,17 +169,31 @@ def process_appsession(appsessionhref, param_values, datadir):
 
     output_dir = datadir + 'output/appresults/' + str(project_id) + '/sessionsummary_' + datetime.now().isoformat('_') + '/'
     scratch_dir = datadir + "scratch/"
+    log_dir = datadir + "log/"
     # ATN output_dir gets created by the call to payload     # TODO no longer true?
     os.system('mkdir -p "%s"' % output_dir)
     os.system('mkdir -p "%s"' % scratch_dir)
+    os.system('mkdir -p "%s"' % log_dir)
 
     ###########################################
-    print("process sample starts: ",  datetime.now().isoformat('_'))
+    logline_start_time = "process sample starts: " +  datetime.now().isoformat('_')
+    with open(log_dir + 'log.txt', 'w') as handle:
+        handle.write(logline_start_time)
+    # print(logline_start_time)
+
     print("param_values : ")
     print(json.dumps(param_values, indent=4, sort_keys=True))
     results = "Hello BaseSpace App"
-    # results = payload(param_values, output_dir, scratch_dir)
-    print("end process sample ends: ",  datetime.now().isoformat('_'))
+    # results = payloadfunc(param_values, scratch_dir)
+
+    # coypy scratch to output_dir, so it is saved as results by basespace
+    # copytree(source, destination, ignore=_logpath)
+    copytree(scratch_dir, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
+
+    logline_end_time = "end process sample ends: " + datetime.now().isoformat('_')
+        with open(log_dir + 'log.txt', 'w') as handle:
+        handle.write(logline_end_time)
+    # print(logline_end_time)
     ############################################
 
     # TODO check why the output_dir is created inside the payload call, then move print metadatqa to before the payload
@@ -189,12 +203,29 @@ def process_appsession(appsessionhref, param_values, datadir):
         write_results(results, output_dir)
 
 
+# default payload
+###################
+
+def dump_parameters(params_values, scratch_dir):
+    """
+    do stuff with data in params_value, saving files into scratch_dir
+    :param params_values:
+    :param scratch_dir:
+    :return:
+    """
+    filepath = scratch_dir + 'parameters.csv'
+    result = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
+    with open(filepath, 'w') as filehandle:
+        filehandle.write(result)
+    return result
+
+
 ###################
 # MAIN API FUNCTION
 ###################
 
 
-def main(datadir='/data/'):
+def main(datadir='/data/', payloadfunc=dump_parameters ):
     # print("APPSESS", APPSESS )
     # print("datadir + 'input/AppSession.json'" , datadir + 'input/AppSession.json')
     # print("---")
@@ -206,7 +237,7 @@ def main(datadir='/data/'):
     # print("---")
     appsessionhref, appsessionparams = read_appsession(datadir + 'input/AppSession.json')
     param_values = parse_appsessionparams(appsessionparams)
-    process_appsession(appsessionhref, param_values, datadir)
+    process_appsession(appsessionhref, param_values, datadir, payloadfunc)
 
 
 parser = argparse.ArgumentParser(description='app, a sample app to test basespace native app platform')

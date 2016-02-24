@@ -167,7 +167,8 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
     #     process_sample(sample, sample_output_dir, param_values)
     #     write_sample_metadata(sample['name'], 'Sample Description', appsessionhref, sampleshrefs, sample_output_dir)
 
-    output_dir = datadir + 'output/appresults/' + str(project_id) + '/sessionsummary_' + datetime.now().isoformat('_') + '/'
+    # output_dir = datadir + 'output/appresults/' + str(project_id) + '/sessionsummary_' + datetime.now().isoformat('_') + '/'
+    output_dir = datadir + 'output/appresults/' + str(project_id) + '/sessionsummary/'
     scratch_dir = datadir + "scratch/"
     log_dir = datadir + "log/"
     # ATN output_dir gets created by the call to payload     # TODO no longer true?
@@ -183,8 +184,8 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
 
     print("param_values : ")
     print(json.dumps(param_values, indent=4, sort_keys=True))
-    results = "Hello BaseSpace App"
-    # results = payloadfunc(param_values, scratch_dir)
+    results = "Hello BaseSpace App\n"
+    results += payloadfunc(param_values, scratch_dir)
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)

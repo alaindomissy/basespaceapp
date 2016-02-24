@@ -191,7 +191,7 @@ def process_appsession(appsessionhref, param_values, datadir, payloadfunc):
     copytree(scratch_dir, output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
 
     logline_end_time = "end process sample ends: " + datetime.now().isoformat('_')
-        with open(log_dir + 'log.txt', 'w') as handle:
+    with open(log_dir + 'log.txt', 'w') as handle:
         handle.write(logline_end_time)
     # print(logline_end_time)
     ############################################
@@ -224,8 +224,7 @@ def dump_parameters(params_values, scratch_dir):
 # MAIN API FUNCTION
 ###################
 
-
-def main(datadir='/data/', payloadfunc=dump_parameters ):
+def main(datadir='/data/', payloadfunc=dump_parameters):
     # print("APPSESS", APPSESS )
     # print("datadir + 'input/AppSession.json'" , datadir + 'input/AppSession.json')
     # print("---")
@@ -242,13 +241,15 @@ def main(datadir='/data/', payloadfunc=dump_parameters ):
 
 parser = argparse.ArgumentParser(description='app, a sample app to test basespace native app platform')
 parser.add_argument('datadir',
-                    help='directory path containing input/AppSession.json and samples/'
+                    help='directory path containing input/AppSession.json and input/samples/'
                     )
-
+parser.add_argument('payloadfunc',
+                    help='payload python function, should take 2 args: params_values, scratch_dir'
+                    )
 
 # this file executed as script
 ##############################
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    main(args.datadir)
+    main(args.datadir, args.payloadfunc)

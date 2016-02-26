@@ -30,3 +30,8 @@
 
     - payload now a parameter
     - >> python -m basespaceapp.main /data/ default_payload
+
+0.0.6 - 2016-02-26
+------------------
+
+    - globals()[payloadfunc] replaced with just payloadfunc

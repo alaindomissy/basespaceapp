@@ -183,7 +183,8 @@ def process_appsession(appsessionhref, param_values, data_dir, payloadfunc):
     print("param_values : ")
     print(json.dumps(param_values, indent=4, sort_keys=True))
     results = "Hello BaseSpace App\n"
-    results += globals()[payloadfunc](param_values, data_dir)
+    # results += globals()[payloadfunc](param_values, data_dir)
+    results += payloadfunc(param_values, data_dir)
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)
@@ -214,7 +215,7 @@ def default_payload(params_values, data_dir):
     :return:
     """
     results = "results default string\n"
-    print(result)
+    print(results)
     filepath = data_dir + 'scratch/parameters.csv'
     results = '\n'.join([key + ': ' + str(value) for key, value in iteritems(params_values)])
     with open(filepath, 'w') as filehandle:

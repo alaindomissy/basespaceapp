@@ -35,3 +35,8 @@
 ------------------
 
     - globals()[payloadfunc] replaced with just payloadfunc
+
+0.0.8 - 2016-02-26
+------------------
+
+    - main takes arguments: arguments_with_content, arguments_with_items

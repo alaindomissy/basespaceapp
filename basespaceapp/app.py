@@ -227,7 +227,7 @@ def default_payload(params_values, data_dir):
 # MAIN API FUNCTION
 ###################
 
-def main(datadir='/data/', payloadfunc=default_payload):
+def main(datadir='/data/', payloadfunc=default_payload, arguments_with_content=ARGUMENTS_WITH_CONTENT, arguments_with_items=ARGUMENTS_WITH_ITEMS):
     # print("APPSESS", APPSESS )
     # print("datadir + 'input/AppSession.json'" , datadir + 'input/AppSession.json')
     # print("---")
@@ -240,7 +240,7 @@ def main(datadir='/data/', payloadfunc=default_payload):
 
 
     appsessionhref, appsessionparams = read_appsession(datadir + 'input/AppSession.json')
-    param_values = parse_appsessionparams(appsessionparams)
+    param_values = parse_appsessionparams(appsessionparams, arguments_with_content, arguments_with_items)
     process_appsession(appsessionhref, param_values, datadir, payloadfunc)
 
 

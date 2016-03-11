@@ -188,8 +188,8 @@ def process_appsession(appsessionhref, param_values, data_dir, payloadfunc):
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)
-    # copytree(data_dir + 'scratch/', output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
-    copytree(data_dir + 'scratch/', output_dir + '../sessiondetails/')
+    copytree(data_dir + 'scratch/', output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
+    # copytree(data_dir + 'scratch/', output_dir + '../sessiondetails/')
 
     logline_end_time = "end process sample ends: " + datetime.now().isoformat('_') + '\n'
     with open(data_dir + 'log/log.txt', 'a') as handle:
@@ -237,8 +237,6 @@ def main(datadir='/data/', payloadfunc=default_payload, arguments_with_content=A
     # print(">>>os.listdir(datadir)")
     # print(os.listdir(datadir))
     # print("---")
-
-
     appsessionhref, appsessionparams = read_appsession(datadir + 'input/AppSession.json')
     param_values = parse_appsessionparams(appsessionparams, arguments_with_content, arguments_with_items)
     process_appsession(appsessionhref, param_values, datadir, payloadfunc)

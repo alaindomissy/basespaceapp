@@ -182,13 +182,13 @@ def process_appsession(appsessionhref, param_values, data_dir, payloadfunc):
 
     print("param_values : ")
     print(json.dumps(param_values, indent=4, sort_keys=True))
-    results = "Hello BaseSpace App\n"
+    results = "Hello BaseSpace App 2016-03-11\n"
     # results += globals()[payloadfunc](param_values, data_dir)
     results += payloadfunc(param_values, data_dir)
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)
-    copytree(data_dir + 'scratch/', output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
+    # copytree(data_dir + 'scratch/', output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
     # copytree(data_dir + 'scratch/', output_dir + '../sessiondetails/')
 
     logline_end_time = "end process sample ends: " + datetime.now().isoformat('_') + '\n'

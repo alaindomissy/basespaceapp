@@ -186,10 +186,13 @@ def process_appsession(appsessionhref, param_values, data_dir, payloadfunc):
     # results += globals()[payloadfunc](param_values, data_dir)
     results += payloadfunc(param_values, data_dir)
 
+    datetimenow = datetime.now().isoformat('_')
+    # sessiondetails_dir = output_dir + '../sessiondetails/'
+    sessiondetails_dir = output_dir + '../sessiondetails_' + datetimenow + '/'
+
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)
-    # copytree(data_dir + 'scratch/', output_dir + '../sessiondetails_' + datetime.now().isoformat('_'))
-    # copytree(data_dir + 'scratch/', output_dir + '../sessiondetails/')
+    copytree(data_dir + 'scratch/', sessiondetails_dir)
 
     logline_end_time = "end process sample ends: " + datetime.now().isoformat('_') + '\n'
     with open(data_dir + 'log/log.txt', 'a') as handle:

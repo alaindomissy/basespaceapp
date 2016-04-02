@@ -6,14 +6,14 @@
 #
 # API functions: main
 #
-# this is very close to the example gicen in basespace documentation
+# this is very close to the example given in basespace documentation
 # intended to be run as a script (if __name__ == '__main__': code)
 #
 ########################################################################################################################
 
 from __future__ import absolute_import, division, print_function        # , unicode_literals
 import json
-import argparse
+import argparse   # added
 
 import os
 
@@ -153,16 +153,14 @@ def main(datadir='/data/'):
                 # json.dump(metaJsonObject, outMetadataFileVisible)
                 outMetadataFileVisible.write(metaJsonString)
 
-parser = argparse.ArgumentParser(description='sampleapp, a sample app to test basespace native app platform')
-
-parser.add_argument('datadir',
-                    help='directory path containing input/AppSession.json and samples/'
-                    )
-
 
 # this file executed as script
 ##############################
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='sampleapp, a sample app to test basespace native app platform')
+    parser.add_argument('datadir',
+                        help='directory path containing input/AppSession.json and samples/'
+                        )
     args = parser.parse_args()
     main(args.datadir)

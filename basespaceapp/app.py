@@ -35,6 +35,13 @@ def read_appsession(appsession_jsonfilename):
 
 
 def parse_appsessionparams(appsessionparams, arguments_with_content=ARGUMENTS_WITH_CONTENT, arguments_with_items=ARGUMENTS_WITH_ITEMS):
+    """
+    returns a dictionanry of parameters values
+    :param appsessionparams:
+    :param arguments_with_content:
+    :param arguments_with_items:
+    :return:
+    """
 
     param_values = {}
 
@@ -192,6 +199,7 @@ def process_appsession(appsessionhref, param_values, data_dir, payloadfunc):
 
     # coypy scratch to output_dir, so it is saved as results by basespace
     # copytree(source, destination, ignore=_logpath)
+    # TODO why call this here and not from crispr.payload ?
     copytree(data_dir + 'scratch/', sessiondetails_dir)
 
     logline_end_time = "end process sample ends: " + datetime.now().isoformat('_') + '\n'
@@ -245,17 +253,15 @@ def main(datadir='/data/', payloadfunc=default_payload, arguments_with_content=A
     process_appsession(appsessionhref, param_values, datadir, payloadfunc)
 
 
-parser = argparse.ArgumentParser(description='app, a sample app to test basespace native app platform')
-parser.add_argument('datadir',
-                    help='directory path containing input/AppSession.json and input/samples/'
-                    )
-parser.add_argument('payloadfunc',
-                    help='payload python function, should take 2 args: params_values, data_dir'
-                    )
-
-
 # this file executed as script
 ##############################
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='app, a sample app to test basespace native app platform')
+    parser.add_argument('datadir',
+                    help='directory path containing input/AppSession.json and input/samples/'
+                    )
+    parser.add_argument('payloadfunc',
+                    help='payload python function, should take 2 args: params_values, data_dir'
+                    )
     args = parser.parse_args()
     main(args.datadir, args.payloadfunc)

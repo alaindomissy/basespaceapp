@@ -155,7 +155,7 @@ def write_params(param_values, output_dir):
           '--------------------\n')
     with open(output_dir + 'appsessionparams.csv','w') as out:
         for key, value in iteritems(param_values):
-            line = '%s\t%s' % (key,value)
+            line = '%s\t%s\n' % (key,value)
             if True:   # key != 'input.samples':
                 out.write(line)
                 print(line)

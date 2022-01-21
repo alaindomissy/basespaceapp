@@ -9,7 +9,7 @@ twine==1.6.5
 recommonmark
 
 # why was this used ?
-ipython==4.0.3
+ipython==7.16.3
 ipython-genutils==0.1.0
 pandas==0.17.1
 pexpect==3.3
